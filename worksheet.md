@@ -19,8 +19,8 @@ Two common Crytographic approaches for securing information are *Encryption* and
     - Text or objects hidden inside ornate boxes which have secret compartments or a complex technique to open them. These boxes were popular in Japan where they are known as *Yosegi*, the boxes vary in complexity but usually require many steps to open them.
 
 
-  | ![Yosegi](images/yosegi.jpg) | [![Youtube Video](http://img.youtube.com/vi/2A-I5J19GKI/0.jpg)](https://youtu.be/2A-I5J19GKI) | |------------------------------|-------------|
-
+  | ![Yosegi](images/yosegi.jpg) | <iframe width="256" height="192" src="https://www.youtube.com/embed/2A-I5J19GKI" frameborder="0" allowfullscreen></iframe> |
+  |------------------------------|-------------|
 
   Now it's your turn to make a digital equivilant of the puzzle boxes shown above. Using a Raspberry Pi and a Sense-HAT add on board you will "hide" a message behind a series of locks or puzzles that the user will have to solve. You'll be making use of the sensors built into the [Sense-HAT](https://www.raspberrypi.org/learning/astro-pi-guide/) board for your puzzles
 
