@@ -43,6 +43,7 @@ Two common Crytographic approaches for securing information are *Encryption* and
   ```python
   ##### Libraries #####
   from sense_hat import SenseHat
+  from time import sleep
 
   ##### Functions #####
 
@@ -54,14 +55,16 @@ Two common Crytographic approaches for securing information are *Encryption* and
 
   ##### Locks #####
 
+  ##### Unlocked #####
   sense.show_message("This is a secret message",scroll_speed=0.05,text_colour=(255,0,0))
   ```
 
   This short piece of starter code carries out a few simple tasks:
     - `from sense_hat import SenseHat` imports the SenseHat library so that your program can control the hardware.
+    - `from time import sleep` imports the time library so that your program can pause for peiods of time.
     - `sense = SenseHat()` creates an object that represents the SenseHat.
-    - 'sense.show_message...` shows the text on the SenseHat display and a speed of 0.05 and in Red (255,0,0)
-    - The lines starting with *#* symbols are comments and are only there so as headings, they are ignored by Python.
+    - `sense.show_message...` shows the text on the SenseHat display and a speed of 0.05 and in Red (255,0,0)
+    - The lines starting with *#* symbols are comments and are only there as headings, they are ignored by Python.
 
   Below the heading **Locks** heading you will be adding some code which will prevent the program getting to the last line unless the user has performed a certain action. Before you get started on making these locks your going to create some pixel art to show the state of the puzzle box.
 
@@ -76,7 +79,7 @@ In order to create these images you're first going to choose some colours to use
   - White = (255,255,255) #Maximum of all three colours
   - Empty / Black = (0,0,0) #All colours off
 
-  In your code you should add these lines which in the **Pixel Art** section which will firstly store your colour choices in some variables and then create two list to represent the two images.
+1. In your code you should add these lines which in the **Pixel Art** section which will firstly store your colour choices in some variables and then create two list to represent the two images.
 
   ```python
   ##### Pixel Art #####
@@ -98,9 +101,9 @@ In order to create these images you're first going to choose some colours to use
 
   unlocked = [
     e,e,e,e,e,e,e,e,
-    e,e,e,w,w,e,e,e,
-    e,e,w,e,e,w,e,e,
-    e,e,w,e,e,w,e,e,
+    e,e,e,e,e,w,w,e,
+    e,e,e,e,w,e,e,w,
+    e,e,e,e,w,e,e,w,
     e,e,g,g,g,g,e,e,
     e,e,g,g,g,g,e,e,
     e,e,g,g,g,g,e,e,
@@ -108,24 +111,44 @@ In order to create these images you're first going to choose some colours to use
     ]
   ```
 
-## acceleration
-Throw / drop / shake
+1. Then in your **Main Program** section you should add these lines which will show the locked image briefly.
+  ```python
+  sense.set_pixels(locked)
+  sleep(2)
+  ```
 
-## Joystick Lock
+1. After your **Unlocked** section you should do the same thing but with your unlocked image.
+  ```python
+  sense.set_pixels(unlocked)
+  sleep(2)
+  ```
+
+1. Your program should now look like this:
+
+  ![Code version 2](images/code2.png)
+
+##Adding locks
+Now your basic code is ready it's time to add some locks to protect you secret message. These locks can be added in any order and it's up to you to choose which you add.
+
+Here are some ideas:
+
+### Orientation Combination Lock
+It is possible for the Sense-HAT to know which way up it is, point up, down left or right. To break this lock the user must rotate the device to match a sequence of orientations, for example the combination might be up, left, up, down and the user would have to rotate the Sense-HAT through those orientations.
+
+### Temperature Lock
+Using the Sense-HAT's temperature sensors this lock could either expect the user to raise the temperature by a number of degrees or alternatively get the Sense-HAT to a particular temperature.
+
+
+### Joystick Lock
 combination of key presses to unlock
 
-## rotation lock
-Turn to set positions in sequence
-
-## Temperature Lock
+### Temperature Lock
 Keep at / below / above a certain temperature
 
-## Humidity
+### Humidity
 rasie humidity by 5% and maintain for 10 seconds
 
-## Add GPS board for GPS lock
-
+### Add GPS board for GPS lock
 How to hide plain text "secret" in python code
 
-
-<iframe scrolling="no" src="https://tube.geogebra.org/material/iframe/id/1342697/width/1022/height/683/border/888888/rc/false/ai/false/sdz/false/smb/false/stb/false/stbh/true/ld/false/sri/true/at/auto" width="1022px" height="683px" style="border:0px;"> </iframe>
+## What's Next?
