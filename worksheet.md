@@ -32,15 +32,81 @@ Two common Crytographic approaches for securing information are *Encryption* and
 
 1. Once assembled you should power up your Raspberry Pi and launch **Python 3 (IDLE)** from the **Programming** section of the menu.
 
-  ![Launch IDLE]()
+  ![Launch IDLE](images/open_idle.png)
 
-2.
+1. Once Python3 has loaded you should create a new program by clicking **File** then **New**
+
+  ![Idle Window](images/idle3.png)
+
+  The window on the right is where you will write your code and the left hand window is where it will run. In the right hand window you should enter the following code:
+
+  ```python
+  ##### Libraries #####
+  from sense_hat import SenseHat
+
+  ##### Functions #####
+
+  ##### Pixel Art #####
+
+  ##### Main Program #####
+  sense = SenseHat()
 
 
+  ##### Locks #####
 
+  sense.show_message("This is a secret message",scroll_speed=0.05,text_colour=(255,0,0))
+  ```
 
+  This short piece of starter code carries out a few simple tasks:
+    - `from sense_hat import SenseHat` imports the SenseHat library so that your program can control the hardware.
+    - `sense = SenseHat()` creates an object that represents the SenseHat.
+    - 'sense.show_message...` shows the text on the SenseHat display and a speed of 0.05 and in Red (255,0,0)
+    - The lines starting with *#* symbols are comments and are only there so as headings, they are ignored by Python.
 
-##Number Combination
+  Below the heading **Locks** heading you will be adding some code which will prevent the program getting to the last line unless the user has performed a certain action. Before you get started on making these locks your going to create some pixel art to show the state of the puzzle box.
+
+## Adding some pixel art
+It would be helpful to show the user some feedback as to whether the box is locked or not. For this example your going to use a pair of padlock images, one red padlock (locked) and one green (unlocked)
+
+![Padlock Images](images/padlocks.png)
+
+In order to create these images you're first going to choose some colours to use, they Sense-HAT uses **R**ed,**G**,**B**lue values to describe colour. The amount of red, green and blue is describe by 3 numbers between 0 - 255. In the example image there are 3 colours used:
+  - Red = (255,0,0) #Maximum amount of red, with no green or blue
+  - Green = (0,255,0 #No red, full green, no blue
+  - White = (255,255,255) #Maximum of all three colours
+  - Empty / Black = (0,0,0) #All colours off
+
+  In your code you should add these lines which in the **Pixel Art** section which will firstly store your colour choices in some variables and then create two list to represent the two images.
+
+  ```python
+  ##### Pixel Art #####
+  r = (255, 0, 0)
+  g = (0, 255, 0)
+  w = (255, 255, 255)
+  e = (0, 0, 0)
+
+  locked = [
+    e,e,e,e,e,e,e,e,
+    e,e,e,w,w,e,e,e,
+    e,e,w,e,e,w,e,e,
+    e,e,w,e,e,w,e,e,
+    e,e,r,r,r,r,e,e,
+    e,e,r,r,r,r,e,e,
+    e,e,r,r,r,r,e,e,
+    e,e,e,e,e,e,e,e
+    ]
+
+  unlocked = [
+    e,e,e,e,e,e,e,e,
+    e,e,e,w,w,e,e,e,
+    e,e,w,e,e,w,e,e,
+    e,e,w,e,e,w,e,e,
+    e,e,g,g,g,g,e,e,
+    e,e,g,g,g,g,e,e,
+    e,e,g,g,g,g,e,e,
+    e,e,e,e,e,e,e,e
+    ]
+  ```
 
 ## acceleration
 Throw / drop / shake
