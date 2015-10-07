@@ -1,6 +1,7 @@
 ##### Libraries #####
 from sense_hat import SenseHat
 from time import sleep
+from random import random
 
 ##### Functions #####
 
@@ -22,6 +23,25 @@ sense.set_pixels(locked)
 sleep(2)
 
 ##### Locks #####
+
+## Temperature Lock ##
+current_temp=sense.get_temperature()
+difference = random()*5
+difference = round(difference,1)
+target_temp=current_temp+difference
+
+print(current_temp,target_temp)
+sleep(3)
+while abs(difference) > 0.1:
+    current_temp = sense.get_temperature()
+    print(difference)
+    difference = target_temp - current_temp
+    if difference > 0:
+        sense.clear(0,0,255)
+    else:
+        sense.clear(255,0,0)
+    
+
 
 
 ##### Unlocked #####
