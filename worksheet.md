@@ -132,11 +132,13 @@ Now your basic code is ready it's time to add some locks to protect you secret m
 
 Here are some ideas:
 
+### [Temperature Lock](temp_lock.md)
+Using the Sense-HAT's temperature sensors this lock will require the user to to raise or lower the temperature by a number of degrees in order to unlock.
+
 ### Orientation Combination Lock
 It is possible for the Sense-HAT to know which way up it is, point up, down left or right. To break this lock the user must rotate the device to match a sequence of orientations, for example the combination might be up, left, up, down and the user would have to rotate the Sense-HAT through those orientations.
 
-### Temperature Lock
-Using the Sense-HAT's temperature sensors this lock could either expect the user to raise the temperature by a number of degrees or alternatively get the Sense-HAT to a particular temperature.
+
 
 
 ### Joystick Lock
