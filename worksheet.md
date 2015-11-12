@@ -135,17 +135,11 @@ Here are some ideas:
 ### [Temperature Lock](temp_lock.md)
 Using the Sense-HAT's temperature sensors this lock will require the user to to raise or lower the temperature by a number of degrees in order to unlock.
 
-### Orientation Combination Lock
+### [Orientation Combination Lock](comb_lock.md)
 It is possible for the Sense-HAT to know which way up it is, point up, down left or right. To break this lock the user must rotate the device to match a sequence of orientations, for example the combination might be up, left, up, down and the user would have to rotate the Sense-HAT through those orientations.
-
-
-
 
 ### Joystick Lock
 combination of key presses to unlock
-
-### Temperature Lock
-Keep at / below / above a certain temperature
 
 ### Humidity
 rasie humidity by 5% and maintain for 10 seconds
