@@ -8,30 +8,30 @@ Before you begin writing the code to make you combination lock mechanism, it's i
 
 There are many ways you could use the sense hat orientation in a lock mechanism but in this activity you'll make a program that does the following:
 
-- Sets up a sequence of angles that will be the combination.
-- Repeatedly (every few seconds) checks the orientation of the Sense-HAT and converts it to an angle.
-- Compares this angle with each item in the combination in order.
-- If correct it continues to the next item, if not it goes back to the beginning of the sequence.
-- Once all items in the combination are complete it unlocks.
+  - Sets up a sequence of angles that will be the combination.
+  - Repeatedly (every few seconds) checks the orientation of the Sense-HAT and converts it to an angle.
+  - Compares this angle with each item in the combination in order.
+  - If correct it continues to the next item, if not it goes back to the beginning of the sequence.
+  - Once all items in the combination are complete it unlocks.
 
 The list above roughly describes the program your going to write and is called an **algorithm**, or set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks, in computer science we call this **decomposition**.
 
 Here's the same algorithm written in a slightly more detailed way:
 
 > ##### Combination setup.
-> > Display an image to show the user that the puzzle box is locked.
-> > Create a list of angles (either 0, 90, 180, 270) which forms the combination.
-> > Create an empty list to store the correctly completed combination steps. Each time the user gets a step right the step is moved from the combination to another list, when the combination list is empty then the combination is complete.
+> > Display an image to show the user that the puzzle box is locked.  
+> > Create a list of angles (either 0, 90, 180, 270) which forms the combination.  
+> > Create an empty list to store the correctly completed combination steps. Each time the user gets a step right the step is moved from the combination to another list, when the combination list is empty then the combination is complete.  
 
-> ##### Combination Lock loop.
-> > Start a loop that continues until the combination has been completely entered.
-> > > Check the orientation of the Sense-HAT and convert it to an angle (0,90,180,270)
-> > > If the angle matches the next item in the combination then
-> > > > Show a green Light
-> > > > Move the item from the combination list to the completed list
-> > > Otherwise
-> > > > Show a red Light
-> > > > Move all the items form the completed list back to the combination list
+> ##### Combination Lock loop.  
+> > Start a loop that continues until the combination has been completely entered.  
+> > > Check the orientation of the Sense-HAT and convert it to an angle (0,90,180,270)  
+> > > If the angle matches the next item in the combination then  
+> > > > Show a green Light  
+> > > > Move the item from the combination list to the completed list  
+> > > Otherwise  
+> > > > Show a red Light  
+> > > > Move all the items form the completed list back to the combination list  
 
 
 ## Converting orientation to angles.
@@ -43,7 +43,7 @@ The Sense-HAT measures orientation in 3 axis (x,y,z) but we want to turn that da
 | **x = 0** | **x = -1** | **x = 0** | **x = 1** |
 | **y = 1** | **y = 0** | **y = -1** | **y = 0** |
 
-As your lock program is going to need to regularly calculate its orientation angle you should create a function. The function will need values of **x** and **y** as input and will return the orientation angle as an output. In your **## Functions ##** section add the following code:
+As your lock program is going to need to regularly calculate its orientation angle you should create a function to perform this calculation. This function will need values of **x** and **y** as inputs and will return the orientation angle as an output. In your ** Functions ** section add the following code:
 
 ```python
 ##### Functions #####
@@ -63,10 +63,10 @@ def get_angle(x,y):
   return angle
 ```
 
-This takes the raw values of x and y and rounds them to the nearest whole number, before using an **if** statement to decide which angle the Sense-HAT is at. Finally it returns the value of angle as its output.
+This takes the raw values of x and y and rounds them to the nearest whole number, before using an *if* statement to decide which angle the Sense-HAT is at. Finally it returns the value of angle as its output.
 
 ## Setting up you combination lock
-Below your **## Locks ##** section you need to add the following code:
+Below your **Locks** section you need to add the following code:
 
 ```python
 ##### Locks #####
@@ -78,8 +78,8 @@ complete = []
 ```
 
 The first line of code tells the sense hat to display the locked image and the next two lines create two lists.
-- The **code** list contains the elements in the combination lock, in the example 5 numbers have been, but more could be added for a more complex code.
-- The second list **complete** will be used to store the completed steps of the combination, each time the user gets a step correct that step gets moved to the complete list.
+- The *code* list contains the elements in the combination lock, in the example 5 numbers have been, but more could be added for a more complex code.
+- The second list *complete* will be used to store the completed steps of the combination, each time the user gets a step correct that step gets moved to the complete list.
 
 ![Item moving](images/list-move.png)
 
@@ -87,11 +87,11 @@ When the code list is empty then the combination has been completed and the lock
 
 ## Creating an unlocking loop
 
-Next you need to create a loop which will continue until the **code** list has been emptied, for this you'll need a **while** loop.
+Next you need to create a loop which will continue until the *code* list has been emptied, for this you'll need a **while** loop.
 
 1. Start your loop with the following code:
 
-  ```python
+  ```python3
   while len(code)>0:
     acc = sense.get_accelerometer_raw()
     x = acc["x"]
@@ -101,21 +101,21 @@ Next you need to create a loop which will continue until the **code** list has b
   The condition `len(code)>0` checks whether the length of the combination code is greater than 0. If it is then the loop continues, if not it exits.
   The following three lines get the acceleration data from the sensor and store x and y data in two variables.
 
-1. Next you'll need to convert **x** and **y** to an angle and compare that with the first item in the **code** list.
+1. Next you'll need to convert *x* and *y* to an angle and compare that with the first item in the *code* list.
 
-  ```python
+  ```python3
   if get_angle(x,y) == code[0]:
      complete.append(code.pop(0))
      sense.set_pixel(0,0,g)
   ```
 
-  - The condition `get_angle(x,y) == code[0]` uses the **get_angle** function to convert x,y to an angle, it then check whether the angle matches the first item in **code**
-  - If the angle matches then the line `complete.append(code.pop(0))` removes (or "pops") the first item from **code** and adds it to the **completed** list.
+  - The condition `get_angle(x,y) == code[0]` uses the *get_angle* function to convert x,y to an angle, it then check whether the angle matches the first item in *code*
+  - If the angle matches then the line `complete.append(code.pop(0))` removes (or "pops") the first item from *code* and adds it to the *completed* list.
   - The `sense.set_pixel(0,0,g)` line turns a single LED green to inform the user they got that step right.
 
-1. If the user gets the angle wrong then the **complete** and **code** lists need resetting and a red LED is shown. Add the following **else** condition to your if block.
+1. If the user gets the angle wrong then the *complete* and *code* lists need resetting and a red LED is shown. Add the following *else* condition to your if block.
 
-```python
+```python3
 if get_angle(x,y) == code[0]:
    complete.append(code.pop(0))
    sense.set_pixel(0,0,g)

@@ -27,7 +27,7 @@ Two common Crytographic approaches for securing information are *Encryption* and
 ## Getting Started
 
 1. Before you can begin to make your puzzle box program you'll need to assemble your Sense-HAT and install the appropriate software for it. To do this follow these instructions:
-  - [Assemble your Sense-HAT & Raspberry Pi](https://www.raspberrypi.org/learning/astro-pi-guide/assemble)
+  - [Assemble your Sense-HAT & Raspberry Pi](https://www.raspberrypi.org/learning/astro-pi-guide/assemble.md)
   - [Check you've install the required software](software.md)
 
 1. Once assembled you should power up your Raspberry Pi and launch **Python 3 (IDLE)** from the **Programming** section of the menu.
