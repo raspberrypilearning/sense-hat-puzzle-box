@@ -8,13 +8,13 @@ def get_angle(x,y):
   y = round(y, 0)
 
   if x == -1:
-      angle= 180
+      angle= 90
   elif y == -1:
-      angle =  90
+      angle =  180
   elif y == 1:
-      angle = 270
-  else:
       angle = 0
+  else:
+      angle = 270
 
   return angle
 
@@ -43,20 +43,19 @@ complete = []
 
 
 while len(code)>0:
-  sense.set_pixel(0,0,e)
-  sleep(1)
-  for x in range(5):
-    acc = sense.get_accelerometer_raw()
-    x = acc["x"]
-    y = acc["y"]
+  acc = sense.get_accelerometer_raw()
+  x = acc["x"]
+  y = acc["y"]
 
   if get_angle(x,y) == code[0]:
     complete.append(code.pop(0))
     sense.set_pixel(0,0,g)
   else:
     code = complete + code
-    steps = []
+    complete = []
     sense.set_pixel(0,0,r)
+  sleep(1)
+  sense.set_pixel(0,0,e)
   sleep(1)
 
 
