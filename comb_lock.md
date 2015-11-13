@@ -39,7 +39,7 @@ The Sense-HAT measures orientation in 3 axis (x,y,z) but we want to turn that da
 
 |  0 degrees | 90 degrees  | 180 degrees | 270 degrees |
 | - | - | - | - |
-| ![0 degrees rotation](images/sense0.jpg) | ![90 degrees rotation](images/sense90.jpg) | ![180 degrees rotation](images/sense180.jpg) | ![270 degrees rotation](images/sense270.jpg) |
+| ![0 degrees rotation](images/sense0.png) | ![90 degrees rotation](images/sense90.png) | ![180 degrees rotation](images/sense180.png) | ![270 degrees rotation](images/sense270.png) |
 | **x = 0** | **x = -1** | **x = 0** | **x = 1** |
 | **y = 1** | **y = 0** | **y = -1** | **y = 0** |
 
