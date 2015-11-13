@@ -15,7 +15,7 @@ def get_angle(x,y):
       angle = 270
   else:
       angle = 0
-  print (angle)
+
   return angle
 
 ##### Pixel Art #####

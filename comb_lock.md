@@ -43,11 +43,60 @@ The Sense-HAT measures orientation in 3 axis (x,y,z) but we want to turn that da
 | **x = 0** | **x = -1** | **x = 0** | **x = 1** |
 | **y = 1** | **y = 0** | **y = -1** | **y = 0** |
 
-Before you   start writing the code for this algorithm you will need to add an extra import line to allow your program to make a random choice. Add this to your import section:
+As your lock program is going to need to regularly calculate its orientation angle you should create a function. The function will need values of **x** and **y** as input and will return the orientation angle as an output. In your **## Functions ##** section add the following code:
+
+```python
+##### Functions #####
+def get_angle(x,y):
+  x = round(x, 0)
+  y = round(y, 0)
+
+  if x == -1:
+      angle= 180
+  elif y == -1:
+      angle =  90
+  elif y == 1:
+      angle = 270
+  else:
+      angle = 0
+
+  return angle
+```
+
+This takes the raw values of x and y and rounds them to the nearest whole number, before using an **if** statement to decide which angle the Sense-HAT is at. Finally it returns the value of angle as its output.
+
+## Setting up you combination lock
+Below your **## Locks ##** section you need to add the following code:
+
+```python
+##### Locks #####
+
+## Rotation Lock
+sense.set_pixels(locked)
+code = [0,180,90,0,270]
+complete = []
+```
+
+The first line of code tells the sense hat to display the locked image and the next two lines create two lists.
+- The **code** list contains the elements in the combination lock, in the example 5 numbers have been, but more could be added for a more complex code.
+- The second list **complete** will be used to store the completed steps of the combination, each time the user gets a step correct that step gets moved to the complete list.
+
+![Item moving](images/list-move.png)
+
+When the code list is empty then the combination has been completed and the lock is unlocked..
+
+## Creating an unlocking loop
+
+Next you need to create a loop which will continue until the **code** list has been emptied, for this you'll need a **while** loop.
+
+```python
+
+
+ Before you   start writing the code for this algorithm you will need to add an extra import line to allow your program to make a random choice. Add this to your import section:
 
 `from random import choice`
 
-1. The first thing you'll need to do is ask the sense hat to check and store the current ambient temperature. Under the **Locks** section of you code add a **Temperature Lock** heading and get the current temperture using the line.
+1. The first thing you'll need to do is ask the sense hat to check and store the current ambient temperature. Under the **Locks** section of you code add a **Temperature Lock** heading and get the current temperature using the line.
 
   `temp=sense.get_temperature()`
 
