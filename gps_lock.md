@@ -213,7 +213,7 @@ Once this loop completes all the targets the program will continue either to the
 ## Testing your Lock
 This lock is tricky to test as you need to go outside. Connect your Raspberry Pi to a Battery pack and take a wander, here's a demonstration:
 
-***Embed youtube clip***
+<iframe width="420" height="315" src="https://www.youtube.com/embed/mGSCdPl_iDs" frameborder="0" allowfullscreen></iframe>
 
 ## What's Next?
 - You may want to add [other locks](worksheet.md) to your Puzzle Box.

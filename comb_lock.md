@@ -140,7 +140,7 @@ Your complete lock code should look like this, be sure to check the capital lett
 ## Testing your Lock
 Here's how your lock should behave:
 
-***Embed youtube clip***
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RnWAOWRMkIQ" frameborder="0" allowfullscreen></iframe>
 
 ## What's Next?
 - You may want to add [other locks](worksheet.md) to your Puzzle Box.

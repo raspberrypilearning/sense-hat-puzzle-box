@@ -104,7 +104,7 @@ You may want to give your user a visual clue as to what they need to do. Include
 ## Testing your Lock
 To test your lock you could carefully hold you your Raspberry Pi above a hot or cold drink to affect the temperature.
 
-***Embed youtube clip***
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zIgaA9zaaA4" frameborder="0" allowfullscreen></iframe>
 
 ## What's Next?
 - You may want to add [other locks](worksheet.md) to your Puzzle Box.

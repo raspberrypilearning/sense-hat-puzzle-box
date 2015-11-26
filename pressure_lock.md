@@ -112,7 +112,7 @@ print out the **diff** so that you can test your program.
 ## Testing your Lock
 To test your lock with the diff values used here you should be able simply blow on the pressure sensor which will momentarily raise the pressure.
 
-***Embed youtube clip***
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CWOED2Yo0ck" frameborder="0" allowfullscreen></iframe>
 
 ## What's Next?
 - You may want to add [other locks](worksheet.md) to your Puzzle Box.
