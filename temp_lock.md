@@ -58,7 +58,7 @@ Before you start writing the code for this algorithm you will need to add an ext
     ]
     ```
 
-  There are way to generate a list of number rather than to type them in for for now this is sufficient.
+  There are other ways to generate a list of number rather than to type them in for for now this is sufficient.
 
 3. Choose a temperature difference at random and add this to your current temperature to get a target temperature.
 
