@@ -76,10 +76,10 @@ It would be helpful to show the user some feedback as to whether the box is lock
 ![Padlock Images](images/padlocks.png)
 
 In order to create these images you're first going to choose some colours to use, the Sense-HAT uses **R**ed, **G**reen, **B**lue values to describe colour. The amount of red, green and blue is describe by 3 numbers between 0 - 255. In the example image there are 3 colours used:
-  - Red = (255,0,0) #Maximum amount of red, with no green or blue
-  - Green = (0,255,0 #No red, full green, no blue
-  - White = (255,255,255) #Maximum of all three colours
-  - Empty / Black = (0,0,0) #All colours off
+  - **Red** = (255,0,0) #Maximum amount of red, with no green or blue
+  - **Green** = (0,255,0 #No red, full green, no blue
+  - **White** = (255,255,255) #Maximum of all three colours
+  - **Empty / Black** = (0,0,0) #All colours off
 
 1. In your code you should add these lines in the **Pixel Art** section which will firstly store your colour choices in some variables and then create two list to represent the two images. (If you look carefully you can make out the shape of the padlocks)
 
