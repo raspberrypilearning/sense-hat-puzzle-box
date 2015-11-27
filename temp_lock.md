@@ -51,19 +51,21 @@ Before you start writing the code for this algorithm you will need to add an ext
 
 2. Then create a list of numbers called containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers the harder the more challenging the lock is going to be to break.
 
-  `temp_diffs=[
+  ```python3
+  temp_diffs=[
     -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
     0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
-    ]`
+    ]
+    ```
 
-  There are way to generate a list of number rather than to type them in for for now this is sufficient.
+  There are other ways to generate a list of number rather than to type them in for for now this is sufficient.
 
 3. Choose a temperature difference at random and add this to your current temperature to get a target temperature.
 
-```Python3
-diff = choice(temp_diffs)
-target_temp=temp+diff
-```
+  ```Python3
+  diff = choice(temp_diffs)
+  target_temp=temp+diff
+  ```
 
 ## Waiting for temperature to change.
 The next part of your lock program is to repeatedly check the temperature until it reaches, or is close to, the target temperature.
@@ -78,12 +80,12 @@ The next part of your lock program is to repeatedly check the temperature until 
 print out the **diff** so that you can test your program.
 
   ```Python3
-while abs(diff) > 0.1:
+  while abs(diff) > 0.1:
     temp = sense.get_temperature()
 
     diff = target_temp - temp
     print(diff)
-```
+  ```
 
   When you run your program (press F5) you should eventually see some numbers scroll past indicating the current temperature difference. Over time you should be able to increase or decrease the temperature until it gets close enough and unlocks.
 
@@ -102,7 +104,7 @@ You may want to give your user a visual clue as to what they need to do. Include
 ## Testing your Lock
 To test your lock you could carefully hold you your Raspberry Pi above a hot or cold drink to affect the temperature.
 
-***Embed youtube clip***
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zIgaA9zaaA4" frameborder="0" allowfullscreen></iframe>
 
 ## What's Next?
 - You may want to add [other locks](worksheet.md) to your Puzzle Box.
