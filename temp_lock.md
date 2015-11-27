@@ -23,33 +23,40 @@ Here's the same algorithm written in a slightly more detailed way:
 
 > ##### Choose a target temperature close to the current temperature.  
 > > Setup a list of numbers that can be added or subtracted from the *current_temp*, call this list *temp_diffs*  
+
 > > Randomly pick a value from *temp_diffs* and call this number *diff*  
+
 > > Add the selected *diff* to the *current_temp* to get the *target_temp*  
 
 > ##### Show whether it's too cold or too hot compared to the target temperature  
 > > If the *diff* is positive then the leds should be all blue (device is colder than *target_temp*)  
+
 > > Otherwise the LEDs should be all red (currently hotter than *target_temp*)  
 
 > ##### Continually watches the current temperature until it's close enough to the target temperature  
 > > While the *diff* is greater than 0.1  
+
 > > Measure the current temperature using the Sense-HAT  
+
 > > Recalculate the *diff* by subtracting the *current_temp* from the *target_temp*  
 
 > ##### Indicate that the temperature lock is unlocked**  
 > > Light all the LEDs green  
+
 > > Wait for 2 seconds  
+
 > > Switch all the LEDs off.  
 
 ## Setting a target temperature
-Before you start writing the code for this algorithm you will need to add an extra import line to allow your program to make a random choice. Add this to your import section:
+1. Before you start writing the code for this algorithm you will need to add an extra import line to allow your program to make a random choice. Add this to your import section:
 
-`from random import choice`
+  `from random import choice`
 
 1. The first thing you'll need to do is ask the sense hat to check and store the current ambient temperature. Under the *Locks* section of you code add a *Temperature Lock* heading and get the current temperture using the line.
 
   `temp = sense.get_temperature()`
 
-2. Then create a list of numbers called containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers the harder the more challenging the lock is going to be to break.
+1. Then create a list of numbers called containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers the harder the more challenging the lock is going to be to break.
 
   ```python3
   temp_diffs=[
@@ -60,7 +67,7 @@ Before you start writing the code for this algorithm you will need to add an ext
 
   There are other ways to generate a list of number rather than to type them in for for now this is sufficient.
 
-3. Choose a temperature difference at random and add this to your current temperature to get a target temperature.
+1. Choose a temperature difference at random and add this to your current temperature to get a target temperature.
 
   ```Python3
   diff = choice(temp_diffs)
@@ -76,7 +83,7 @@ The next part of your lock program is to repeatedly check the temperature until 
 
   This while loop will end when the current temperature is within 0.1 degrees of the target temperature.
 
-2. Add code within your loop to find the new current temperature and store as **temp**, before using it to recalculate the difference(**diff**) from the target temperature. Your should also
+1. Add code within your loop to find the new current temperature and store as **temp**, before using it to recalculate the difference(**diff**) from the target temperature. Your should also
 print out the **diff** so that you can test your program.
 
   ```Python3

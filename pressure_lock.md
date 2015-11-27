@@ -61,7 +61,7 @@ This will create an image of 3 wavy lines to indicate airflow:
 ![Pressure Image](images/pressure.png)
 
 ## Setting a target pressure
-Before you start writing the code for this algorithm you will need to add an extra import line to allow your program to make a random choice. Add this to your import section:
+1. Before you start writing the code for this algorithm you will need to add an extra import line to allow your program to make a random choice. Add this to your import section:
 
 `from random import choice`
 
@@ -69,7 +69,7 @@ Before you start writing the code for this algorithm you will need to add an ext
 
   `pressure = sense.get_pressure()`
 
-2. Then create a list of numbers called containing a range of numbers that could be added to the current pressure. The wider this range of numbers the harder the more challenging the lock is going to be to break.
+1. Then create a list of numbers called containing a range of numbers that could be added to the current pressure. The wider this range of numbers the harder the more challenging the lock is going to be to break.
 
   ```python3
 pressure_diffs = [0.12,0.13,0.14,0.15]
@@ -77,7 +77,7 @@ pressure_diffs = [0.12,0.13,0.14,0.15]
 
   There are other ways to generate a list of number rather than to type them in for for now this is sufficient.
 
-3. Choose a pressure difference at random and add this to your current pressure to get a target pressure.
+1. Choose a pressure difference at random and add this to your current pressure to get a target pressure.
 
   ```Python3
   diff = choice(pressure_diffs)
@@ -93,7 +93,7 @@ The next part of your lock program is to repeatedly check the pressure until it 
 
   This while loop will end when the current pressure is within 0.1 of the target pressure.
 
-2. Add code within your loop to find the new current pressure and store as *pressure*, before using it to recalculate the difference(*diff*) from the target pressure. Your should also
+1. Add code within your loop to find the new current pressure and store as *pressure*, before using it to recalculate the difference(*diff*) from the target pressure. Your should also
 print out the *diff* so that you can test your program.
 
   ```Python3

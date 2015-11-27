@@ -9,28 +9,37 @@ Before you begin writing the code to make you combination lock mechanism, it's i
 There are many ways you could use the sense hat orientation in a lock mechanism but in this activity you'll make a program that does the following:
 
   - Sets up a sequence of angles that will be the combination.
-  - Repeatedly (every few seconds) checks the orientation of the Sense-HAT and converts it to an angle.
+  - Repeatedly checks the orientation of the Sense-HAT and converts it to an angle.
   - Compares this angle with each item in the combination in order.
-  - If correct it continues to the next item, if not it goes back to the beginning of the sequence.
+  - If correct, it continues to the next item, if not it goes back to the beginning of the sequence.
   - Once all items in the combination are complete it unlocks.
 
 The list above roughly describes the program your going to write and is called an **algorithm**, or set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks, in computer science we call this **decomposition**.
 
 Here's the same algorithm written in a slightly more detailed way:
 
-> ##### Combination setup.
-> > Display an image to show the user that the puzzle box is locked.  
+> ##### Combination setup.  
+> > Display an image to show the user that the puzzle box is locked.
+
 > > Create a list of angles (either 0, 90, 180, 270) which forms the combination.  
+
 > > Create an empty list to store the correctly completed combination steps. Each time the user gets a step right the step is moved from the combination to another list, when the combination list is empty then the combination is complete.  
 
 > ##### Combination Lock loop.  
 > > Start a loop that continues until the combination has been completely entered.  
+
 > > > Check the orientation of the Sense-HAT and convert it to an angle (0,90,180,270)  
+
 > > > If the angle matches the next item in the combination then  
+
 > > > > Show a green Light  
+
 > > > > Move the item from the combination list to the completed list  
+
 > > > Otherwise  
+
 > > > > Show a red Light  
+
 > > > > Move all the items form the completed list back to the combination list  
 
 
