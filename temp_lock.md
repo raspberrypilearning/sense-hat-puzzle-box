@@ -19,23 +19,23 @@ The list above roughly describes the program your going to write and is called a
 Here's the same algorithm written in a slightly more detailed way:
 
 > ##### Finds out the current temperature.
-> > Measure the temperature using the Sense-HAT and store the result as **current_temp**
+> > Measure the temperature using the Sense-HAT and store the result as *current_temp*
 
-> ##### Choose a target temperature close to the current temperature.
-> > Setup a list of numbers that can be added or subtracted from the **current_temp**, call this list **temp_diffs**
-> > Randomly pick a value from **temp_diffs** and call this number **diff**  
-> > Add the selected **diff** to the **current_temp** to get the **target_temp**  
+> ##### Choose a target temperature close to the current temperature.  
+> > Setup a list of numbers that can be added or subtracted from the *current_temp*, call this list *temp_diffs*  
+> > Randomly pick a value from *temp_diffs* and call this number *diff*  
+> > Add the selected *diff* to the *current_temp* to get the *target_temp*  
 
-> ##### Show whether it's too cold or too hot compared to the target temperature
-> > If the **diff** is positive then the leds should be all blue (device is colder than **target_temp**)  
-> > Otherwise the LEDs should be all red (currently hotter than **target_temp**)  
+> ##### Show whether it's too cold or too hot compared to the target temperature  
+> > If the *diff* is positive then the leds should be all blue (device is colder than *target_temp*)  
+> > Otherwise the LEDs should be all red (currently hotter than *target_temp*)  
 
-> ##### Continually watches the current temperature until it's close enough to the target temperature
-> > While the **diff** is greater than 0.1  
+> ##### Continually watches the current temperature until it's close enough to the target temperature  
+> > While the *diff* is greater than 0.1  
 > > Measure the current temperature using the Sense-HAT  
-> > Recalculate the **diff** by subtracting the **current_temp** from the **target_temp**  
+> > Recalculate the *diff* by subtracting the *current_temp* from the *target_temp*  
 
-> ##### Indicate that the temperature lock is unlocked**
+> ##### Indicate that the temperature lock is unlocked**  
 > > Light all the LEDs green  
 > > Wait for 2 seconds  
 > > Switch all the LEDs off.  
@@ -45,18 +45,18 @@ Before you start writing the code for this algorithm you will need to add an ext
 
 `from random import choice`
 
-1. The first thing you'll need to do is ask the sense hat to check and store the current ambient temperature. Under the **Locks** section of you code add a **Temperature Lock** heading and get the current temperture using the line.
+1. The first thing you'll need to do is ask the sense hat to check and store the current ambient temperature. Under the *Locks* section of you code add a *Temperature Lock* heading and get the current temperture using the line.
 
-  `temp=sense.get_temperature()`
+  `temp = sense.get_temperature()`
 
 2. Then create a list of numbers called containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers the harder the more challenging the lock is going to be to break.
 
   ```python3
   temp_diffs=[
-    -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
-    0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
+      -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
+      0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
     ]
-    ```
+  ```
 
   There are other ways to generate a list of number rather than to type them in for for now this is sufficient.
 
@@ -64,7 +64,7 @@ Before you start writing the code for this algorithm you will need to add an ext
 
   ```Python3
   diff = choice(temp_diffs)
-  target_temp=temp+diff
+  target_temp = temp + diff
   ```
 
 ## Waiting for temperature to change.
@@ -81,15 +81,15 @@ print out the **diff** so that you can test your program.
 
   ```Python3
   while abs(diff) > 0.1:
-    temp = sense.get_temperature()
+      temp = sense.get_temperature()
 
-    diff = target_temp - temp
-    print(diff)
+      diff = target_temp - temp
+      print(diff)
   ```
 
   When you run your program (press F5) you should eventually see some numbers scroll past indicating the current temperature difference. Over time you should be able to increase or decrease the temperature until it gets close enough and unlocks.
 
-![Idle Output]()
+![Idle Output](images/temp_diffs.png)
 
 ## Adding a colour prompt.
 You may want to give your user a visual clue as to what they need to do. Include the following code in your lock which will show red when the temperature is too high and blue when to cold.
@@ -100,6 +100,8 @@ You may want to give your user a visual clue as to what they need to do. Include
     else:
       sense.clear(150,0,0)
   ```
+
+Your final lock code should look like the image below and can be downloaded [here](code/puzzle_box_temp.py)
 
 ## Testing your Lock
 To test your lock you could carefully hold you your Raspberry Pi above a hot or cold drink to affect the temperature.
