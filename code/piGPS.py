@@ -10,14 +10,11 @@ class GPS(object):
         self._log = kwargs.get('log',False)
         self._logfile = kwargs.get('logfile','')
         print(self._log,self._logfile)
-        self.datastream = open("test_journey","r")
-
-
-        #try:
-        #    self.datastream = serial.Serial("/dev/ttyAMA0", 9600, timeout=0.5)
-        #except:
-        #    print("failed to write to serial port")
-        #    self.datastream = serial.Serial("/dev/null", 9600, timeout=0.5)
+        
+        try:
+            self.datastream = serial.Serial("/dev/ttyAMA0", 9600, timeout=0.5)
+        except:
+            print("failed to write to serial port")
         self._gpsData = [0,0,0,0,0,0]        
         
         thread = threading.Thread(target=self.run, args=())
@@ -141,8 +138,8 @@ class GPS(object):
                 
             sleep(0.1)
 
-
-#if __name__ == '__main__':
- #   gps = GPS()
-  #  for x in range(900):
-   #     sleep(1)
+if __name__ == '__main__':
+    gps = GPS()
+    while True:
+        print(gps.gpsData)
+        sleep(1)
