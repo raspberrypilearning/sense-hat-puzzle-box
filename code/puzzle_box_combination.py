@@ -38,7 +38,7 @@ sleep(2)
 
 ## Rotation Lock
 sense.set_pixels(locked)
-code = [0,180,90,0,270]
+code = [0,180,90,270]
 complete = []
 
 

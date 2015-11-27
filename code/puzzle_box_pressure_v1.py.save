@@ -1,4 +1,4 @@
-##### Libraries #####
+#### Libraries #####
 from sense_hat import SenseHat
 from time import sleep
 from random import choice
@@ -16,6 +16,8 @@ locked = [e,e,e,e,e,e,e,e,e,e,e,w,w,e,e,e,e,e,w,e,e,w,e,e,e,e,w,e,e,w,e,e,e,e,r,
 
 unlocked = [e,e,e,e,e,e,e,e,e,e,e,e,e,w,w,e,e,e,e,e,w,e,e,w,e,e,e,e,w,e,e,w,e,e,g,g,g,g,e,e,e,e,g,g,g,g,e,e,e,e,g,g,g,g,e,e,e,e,e,e,e,e,e,e]
 
+pressure_pic = [e,e,e,e,e,e,e,e,e,e,w,w,e,e,e,e,e,w,e,e,w,e,e,w,w,e,e,e,e,w,w,e,e,e,e,e,e,e,e,e,e,e,w,w,e,e,e,e,e,w,e,e,w,e,e,w,w,e,e,e,e,w,w,e]
+
 
 ##### Main Program #####
 sense = SenseHat()
@@ -25,30 +27,22 @@ sleep(2)
 ##### Locks #####
 
 ## Temperature Lock ##
-temp=sense.get_temperature()
+pressure=sense.get_pressure()
 
-temp_diffs=[
-    -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6
-    ]
+pressure_diffs=[0.15,0.16,0.17,0.18,0.19]
 
-diff = choice(temp_diffs)
+diff = choice(pressure_diffs)
 
-target_temp=temp+diff
+target_pressure=pressure+diff
 
+sense.set_pixels(pressure_pic)
 while abs(diff) > 0.1:
-    temp = sense.get_temperature()
+    pressure = sense.get_pressure()
     
-    diff = target_temp - temp
-    print(diff)
-    if diff > 0:
-        sense.clear(0,0,150)
-    else:
-        sense.clear(150,0,0)
-
-
-
+    diff = target_pressure- pressure
 
 ##### Unlocked #####
 sense.set_pixels(unlocked)
 sleep(2)
 sense.show_message("This is a secret message",scroll_speed=0.05,text_colour=(255,0,0))
+

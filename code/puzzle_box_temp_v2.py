@@ -28,7 +28,8 @@ sleep(2)
 temp=sense.get_temperature()
 
 temp_diffs=[
-    -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6
+    -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
+      0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
     ]
 
 diff = choice(temp_diffs)
@@ -40,10 +41,7 @@ while abs(diff) > 0.1:
     
     diff = target_temp - temp
     print(diff)
-    if diff > 0:
-        sense.clear(0,0,150)
-    else:
-        sense.clear(150,0,0)
+    
 
 
 
