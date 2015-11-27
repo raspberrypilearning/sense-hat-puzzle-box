@@ -8,13 +8,13 @@ def get_angle(x,y):
   y = round(y, 0)
 
   if x == -1:
-      angle= 90
+    angle= 180
+  elif x == 1:
+    angle= 0
   elif y == -1:
-      angle =  180
-  elif y == 1:
-      angle = 0
+    angle =  90
   else:
-      angle = 270
+    angle = 270
 
   return angle
 

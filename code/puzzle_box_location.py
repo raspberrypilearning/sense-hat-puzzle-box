@@ -39,7 +39,35 @@ for target in targets:
 
     while distance > 0.01:
         if gps.sat < 4:
-            sense.show_message("Are you outside?",scroll_speed=0.05,text_colour=(150,150,150))
+            sense.show_message(
+                "Are you outside?",
+                scroll_speed=0.05,
+                text_colour=(150,150,150)
+          )
+        else:
+            lastDistance = distance
+            distance = round(gps.distanceToTarget(target),2)
+
+            if distance < lastDistance and lastDistance !=999999:
+                msg = "Warmer...{0}m".format(int(distance*1000))
+                colour = (150,0,0)
+            elif distance > lastDistance:
+                msg = "Colder...{0}m".format(int(distance*1000))
+                colour = (0,0,150)
+
+                sense.show_message(
+                  msg,
+                  scroll_speed=0.05,
+                  text_colour=colour
+                )
+
+        sense.set_pixels(locked)
+        sleep(5)
+    sense.set_pixels(tick)
+    sleep(5)
+
+
+
 
 ##### Unlocked #####
 sense.set_pixels(unlocked)

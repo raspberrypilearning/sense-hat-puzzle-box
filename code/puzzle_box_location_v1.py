@@ -1,22 +1,10 @@
 ##### Libraries #####
 from sense_hat import SenseHat
 from time import sleep
+from random import choice
+from piGPS import GPS
 
 ##### Functions #####
-def get_angle(x,y):
-  x = round(x, 0)
-  y = round(y, 0)
-
-  if x == -1:
-      angle= 90
-  elif y == -1:
-      angle =  180
-  elif y == 1:
-      angle = 0
-  else:
-      angle = 270
-
-  return angle
 
 ##### Pixel Art #####
 r = (255, 0, 0)
@@ -28,6 +16,8 @@ locked = [e,e,e,e,e,e,e,e,e,e,e,w,w,e,e,e,e,e,w,e,e,w,e,e,e,e,w,e,e,w,e,e,e,e,r,
 
 unlocked = [e,e,e,e,e,e,e,e,e,e,e,e,e,w,w,e,e,e,e,e,w,e,e,w,e,e,e,e,w,e,e,w,e,e,g,g,g,g,e,e,e,e,g,g,g,g,e,e,e,e,g,g,g,g,e,e,e,e,e,e,e,e,e,e]
 
+tick = [e,e,e,e,e,e,e,g,e,e,e,e,e,e,g,g,e,e,e,e,e,g,g,e,e,e,e,e,g,g,e,e,g,g,e,g,g,e,e,e,e,g,g,g,e,e,e,e,e,e,g,e,e,e,e,e,e,e,e,e,e,e,e,e]
+
 
 ##### Main Program #####
 sense = SenseHat()
@@ -36,29 +26,20 @@ sleep(2)
 
 ##### Locks #####
 
-## Rotation Lock
-sense.set_pixels(locked)
-code = [0,180,90,0,270]
-complete = []
+## Temperature Lock ##
+gps = GPS()
+targets = [
+    [52.220370, 0.111730],
+    [52.189315, 0.176366]
+]
 
 
-while len(code)>0:
-  acc = sense.get_accelerometer_raw()
-  x = acc["x"]
-  y = acc["y"]
+for target in targets:
+    distance = 999999
 
-  if get_angle(x,y) == code[0]:
-    complete.append(code.pop(0))
-    sense.set_pixel(0,0,g)
-  else:
-    code = complete + code
-    complete = []
-    sense.set_pixel(0,0,r)
-  sleep(1)
-  sense.set_pixel(0,0,e)
-  sleep(1)
-
-
+    while distance > 0.01:
+        if gps.sat < 4:
+            sense.show_message("Are you outside?",scroll_speed=0.05,text_colour=(150,150,150))
 
 ##### Unlocked #####
 sense.set_pixels(unlocked)
