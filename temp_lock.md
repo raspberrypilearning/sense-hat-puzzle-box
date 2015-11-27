@@ -103,6 +103,8 @@ You may want to give your user a visual clue as to what they need to do. Include
 
 Your final lock code should look like the image below and can be downloaded [here](code/puzzle_box_temp.py)
 
+![Temp Lock Code](images/temp_code_complete.png)
+
 ## Testing your Lock
 To test your lock you could carefully hold you your Raspberry Pi above a hot or cold drink to affect the temperature.
 

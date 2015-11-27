@@ -38,12 +38,14 @@ target_temp=temp+diff
 
 while abs(diff) > 0.1:
     temp = sense.get_temperature()
-    
+
     diff = target_temp - temp
     print(diff)
-    
 
-
+    if diff > 0:
+        sense.clear(0,0,150)
+    else:
+        sense.clear(150,0,0)
 
 
 ##### Unlocked #####

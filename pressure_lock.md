@@ -18,24 +18,24 @@ The list above roughly describes the program your going to write and is called a
 
 Here's the same algorithm written in a slightly more detailed way:
 
-> ##### Finds out the current pressure.
-> > Measure the pressure using the Sense-HAT and store the result as **current_pressure**
+> ##### Finds out the current pressure.  
+> > Measure the pressure using the Sense-HAT and store the result as *current_pressure*  
 
-> ##### Choose a target temperature close to the current temperature.
-> > Setup a list of numbers that can be added or subtracted from the **current_pressure**, call this list **pressure_diffs**
-> > Randomly pick a value from **pressure_diffs** and call this number **diff**  
-> > Add the selected **diff** to the **current_pressure** to get the **target_pressure**  
+> ##### Choose a target temperature close to the current temperature.  
+> > Setup a list of numbers that can be added or subtracted from the *current_pressure*, call this list *pressure_diffs*  
+> > Randomly pick a value from *pressure_diffs* and call this number *diff*  
+> > Add the selected *diff* to the *current_pressure* to get the *target_pressure*  
 
-> ##### Display an image to indicate the the pressure lock is active.
-> > In this example a set of wavey lines will be used.
+> ##### Display an image to indicate the the pressure lock is active.  
+> > In this example a set of wavey lines will be used.  
 > > A cryptic clue or message could be displayed instead.  
 
-> ##### Continually watches the current pressure until it's close enough to the target pressure
-> > While the **diff** is greater than 0.1  
+> ##### Continually watches the current pressure until it's close enough to the target pressure  
+> > While the *diff* is greater than 0.1  
 > > Measure the current pressure using the Sense-HAT  
-> > Recalculate the **diff** by subtracting the **current_pressure** from the **target_pressure**  
+> > Recalculate the *diff* by subtracting the *current_pressure* from the *target_pressure*  
 
-> ##### Indicate that the temperature lock is unlocked**
+> ##### Indicate that the temperature lock is unlocked    
 > > Light all the LEDs green  
 > > Wait for 2 seconds  
 > > Switch all the LEDs off.  
@@ -43,20 +43,20 @@ Here's the same algorithm written in a slightly more detailed way:
 ## Adding a pressure lock image.
 You'll need some way of showing that the pressure lock is active, add a line of Python to the Pixel Art section below your *locked* and *unlocked* images.
 
-```python3
-pressure_pic = [
-e,e,e,e,e,e,e,e,
-e,e,w,w,e,e,e,e,
-e,w,e,e,w,e,e,w,
-w,e,e,e,e,w,w,e,
-e,e,e,e,e,e,e,e,
-e,e,w,w,e,e,e,e,
-e,w,e,e,w,e,e,w,
-w,e,e,e,e,w,w,e
-]
-```
+  ```python3
+  pressure_pic = [
+      e,e,e,e,e,e,e,e,
+      e,e,w,w,e,e,e,e,
+      e,w,e,e,w,e,e,w,
+      w,e,e,e,e,w,w,e,
+      e,e,e,e,e,e,e,e,
+      e,e,w,w,e,e,e,e,
+      e,w,e,e,w,e,e,w,
+      w,e,e,e,e,w,w,e
+  ]
+  ```
 
-This will create an image of 3 wavey lines to indicate airflow:
+This will create an image of 3 wavy lines to indicate airflow:
 
 ![Pressure Image](images/pressure.png)
 
@@ -67,12 +67,12 @@ Before you start writing the code for this algorithm you will need to add an ext
 
 1. The first thing you'll need to do is ask the sense hat to check and store the current pressure. Under the **Locks** section of you code add a **Pressure Lock** heading and get the current pressure using the line.
 
-  `temp=sense.get_pressure()`
+  `pressure = sense.get_pressure()`
 
 2. Then create a list of numbers called containing a range of numbers that could be added to the current pressure. The wider this range of numbers the harder the more challenging the lock is going to be to break.
 
   ```python3
-pressure_diffs=[0.15,0.16,0.17,0.18,0.19]
+pressure_diffs = [0.12,0.13,0.14,0.15]
     ```
 
   There are other ways to generate a list of number rather than to type them in for for now this is sufficient.
@@ -81,8 +81,7 @@ pressure_diffs=[0.15,0.16,0.17,0.18,0.19]
 
   ```Python3
   diff = choice(pressure_diffs)
-  target_pressure=pressure+diff
-
+  target_pressure = pressure + diff
   ```
 
 ## Waiting for pressure to change.
@@ -94,20 +93,24 @@ The next part of your lock program is to repeatedly check the pressure until it 
 
   This while loop will end when the current pressure is within 0.1 of the target pressure.
 
-2. Add code within your loop to find the new current pressure and store as **pressure**, before using it to recalculate the difference(**diff**) from the target pressure. Your should also
-print out the **diff** so that you can test your program.
+2. Add code within your loop to find the new current pressure and store as *pressure*, before using it to recalculate the difference(*diff*) from the target pressure. Your should also
+print out the *diff* so that you can test your program.
 
   ```Python3
   while abs(diff) > 0.1:
-    pressure = sense.pressure()
+      pressure = sense.pressure()
 
-    diff = target_pressure - pressure
-    print(diff)
+      diff = target_pressure - pressure
+      print(diff)
   ```
 
   When you run your program (press F5) you should eventually see some numbers scroll past indicating the current pressure difference.
 
-![Idle Output]()
+![Idle Output](images/pressure_diffs.png)
+
+Your final lock code should look like the image below and can be downloaded [here](code/puzzle_box_pressure.py)
+
+![Pressure Lock Code](images/pressure_code_complete.png)
 
 ## Testing your Lock
 To test your lock with the diff values used here you should be able simply blow on the pressure sensor which will momentarily raise the pressure.

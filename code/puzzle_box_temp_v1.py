@@ -37,7 +37,7 @@ target_temp=temp+diff
 
 while abs(diff) > 0.1:
     temp = sense.get_temperature()
-    
+
     diff = target_temp - temp
     print(diff)
     if diff > 0:
