@@ -119,7 +119,7 @@ Next you need to create a loop which will continue until the `code` list has bee
   ```
 
   - The condition `get_angle(x,y) == code[0]` uses the `get_angle` function to convert x,y to an angle, it then checks whether the angle matches the first item in `code`.
-  - If the angle matches then the line `complete.append(code.pop(0))` removes (or "pops") the first item from *code* and adds it to the `complete` list.
+  - If the angle matches then the line `complete.append(code.pop(0))` removes (or "pops") the first item from `code` and adds it to the `complete` list.
   - The `sense.set_pixel(0,0,g)` line turns a single LED green to inform the user they got that step right.
 
 1. If the user gets the angle wrong then the `complete` and `code` lists need resetting and a red LED is shown. Add the following `else` condition to your `if` block.
