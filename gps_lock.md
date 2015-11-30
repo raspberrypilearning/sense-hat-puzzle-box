@@ -4,30 +4,30 @@ In this activity, you will learn how to create a location-sensitive lock for you
 ![Code version 2](/images/code2.png)
 
 ## Additional hardware
-In order for you Raspberry Pi to know it's location, it will need to use a technology know as GPS (Global Positioning System) which uses communication with satelites to determine a position.
+In order for your Raspberry Pi to know its location, it will need to use a technology know as GPS (Global Positioning System) which uses communication with satelites to determine a position.
 
-Your Raspberry Pi will need to communicate with at least 4 GPS satelites to get a accurate location. By timing the speed of this communication, the distance from each satelite can be calculated. Once we know the distance to all 4 satelites a 3D position on Earth can be given in terms of:
-  - **Latitude**, the distance North / South of the Equator. Positive distances are north and negative is south.
-  - **Longitude**, the distance East / West taken from the Greenwich Prime Meridian in London. Positive distances are east and Negative are West.
+Your Raspberry Pi will need to communicate with at least four GPS satelites to get a accurate location. By timing the speed of this communication, the distance from each satelite can be calculated. Once we know the distance to all four satelites, a 3D position on Earth can be given in terms of:
+  - **Latitude**, the distance north or south of the Equator. Positive distances are north and negative distances are south.
+  - **Longitude**, the distance east or west of the Greenwich Prime Meridian in London. Positive distances are east and negative distances are west.
   - **Altitude**, the current height above sea level.
 
-You'll need to add GPS functionality to your Raspberry Pi, this can be done in a number of ways but the easiest (when using the Sense-HAT) is the GPS Expansion Board from HAB supplies.
+You'll need to add GPS functionality to your Raspberry Pi. This can be done in a number of ways but the easiest (when using the Sense HAT) is to use the GPS Expansion Board from HAB supplies.
 
 ![GPS](images/gps_board.jpg)
 
 Ensure you have followed the [hardware](hardware.md) and [software](software.md) setup instructions before continuing.
 
-## The lock Mechanism
-Before you begin writing the code to make you location lock mechanism, it's important to understand how it will behave and how you will create that behaviour with code.
+## The lock mechanism
+Before you begin writing the code to make your location lock mechanism, it's important to understand how it will behave and how you will create that behaviour with code.
 
 In this activity you'll make a program that does the following:
 
-- Create a *gps* object which continually checks for GPS data, and it also sets up a list of destination(s) which the user must visit.
+- Create a `gps` object which continually checks for GPS data, and it also sets up a list of destination(s) which the user must visit.
 - Calculates the distance from the first target location
 - Continually checks the distance to the target location until you are within 10m of it. Prompts you as whether you are getting closer or farther away.
 - Finally, once all the target destinations have been visited the program will give indication that the temperature lock is unlocked.
 
-The list above roughly describes the program your going to write and is called an **algorithm**, or set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks, in computer science we call this **decomposition**.
+The list above roughly describes the program your going to write and is called an **algorithm**, or set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks; in computer science we call this **decomposition**.
 
 Here's the same algorithm written in a slightly more detailed way:
 
@@ -40,7 +40,7 @@ Here's the same algorithm written in a slightly more detailed way:
 > > A loop begins which only exits when the current *distance* gets below 0.01km (10m)  
 > > > If the *gps* object is in contact with less than 4 satelites then a message is displayed to tell the user to "go outside"  
 > > > Otherwise the current *distance* is stored in the *lastDistance* variable and the distance is recalculated using the current position.  
-> > > Depending on whether the current *distance* is larger or smaller than the *lastDistance* a the message *"warmer"* or *"colder"* is displayed plus the *currentDistance*  
+> > > Depending on whether the current *distance* is larger or smaller than the *lastDistance*, the message *"warmer"* or *"colder"* is displayed plus the *currentDistance*  
 > > > The locked image is then displayed for 5 seconds  
 > > When a location is reached a green tick is displayed and the next location is selected.  
 > When the final location has been reached, the location lock is unlocked and the program continues on to display the secret message.   
