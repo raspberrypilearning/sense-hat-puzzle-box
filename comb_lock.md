@@ -1,7 +1,7 @@
 # Puzzle Box - Combination Lock
 In this activity you will learn how to create an orientation-sensitive combination lock for your Sense HAT Puzzle Box; before working through this activity, you should have completed the initial [worksheet](worksheet.md) and have the code shown below.
 
-![Code version 2](images/code2.png)
+![Code version 2](/images/code2.png)
 
 ## The lock mechanism
 Before you begin writing the code to make your combination lock mechanism, it's important to understand how it will behave and how you will create that behaviour with code.
