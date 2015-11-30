@@ -1,20 +1,20 @@
 # Puzzle Box - Combination Lock
-In this activity you will learn how to create an orientation sensitive combination lock for you **Sense-HAT Puzzle Box**, before working through this activity you should have completed the initial [worksheet](worksheet.md) and have the code shown below.
+In this activity you will learn how to create an orientation-sensitive combination lock for your Sense HAT Puzzle Box; before working through this activity, you should have completed the initial [worksheet](worksheet.md) and have the code shown below.
 
 ![Code version 2](images/code2.png)
 
-## The lock Mechanism
-Before you begin writing the code to make you combination lock mechanism, it's important to understand how it will behave and how you will create that behaviour with code.
+## The lock mechanism
+Before you begin writing the code to make your combination lock mechanism, it's important to understand how it will behave and how you will create that behaviour with code.
 
-There are many ways you could use the sense hat orientation in a lock mechanism but in this activity you'll make a program that does the following:
+There are many ways you could use the Sense HAT orientation sensors in a lock mechanism, but in this activity you'll make a program that does the following:
 
   - Sets up a sequence of angles that will be the combination.
-  - Repeatedly checks the orientation of the Sense-HAT and converts it to an angle.
+  - Repeatedly checks the orientation of the Sense HAT and converts it to an angle.
   - Compares this angle with each item in the combination in order.
-  - If correct, it continues to the next item, if not it goes back to the beginning of the sequence.
-  - Once all items in the combination are complete it unlocks.
+  - If correct, it continues to the next item; if not, it goes back to the beginning of the sequence.
+  - Once all items in the combination are complete, it unlocks.
 
-The list above roughly describes the program your going to write and is called an **algorithm**, or set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks, in computer science we call this **decomposition**.
+The list above roughly describes the program you're going to write and is called an **algorithm**, or set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks. In computer science, we call this **decomposition**.
 
 Here's the same algorithm written in a slightly more detailed way:
 
