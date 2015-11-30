@@ -1,7 +1,7 @@
 # Puzzle Box - Location Lock
-In this activity you will learn how to create location sensitive lock for you **Sense-HAT Puzzle Box**, before working through this activity you should have completed the initial [worksheet](worksheet.md) and have the code shown below.
+In this activity, you will learn how to create a location-sensitive lock for your Sense HAT Puzzle Box; before working through this activity, you should have completed the initial [worksheet](worksheet.md) and have the code shown below.
 
-![Code version 2](images/code2.png)
+![Code version 2](/images/code2.png)
 
 ## Additional hardware
 In order for you Raspberry Pi to know it's location, it will need to use a technology know as GPS (Global Positioning System) which uses communication with satelites to determine a position.
