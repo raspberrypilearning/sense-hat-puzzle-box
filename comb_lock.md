@@ -44,7 +44,7 @@ Here's the same algorithm written in a slightly more detailed way:
 
 
 ## Converting orientation to angles.
-The Sense-HAT measures orientation in 3 axis (x,y,z) but we want to turn that data into a simple rotation angle using the **x** and **y** data. The table below how x,y relate to these rotation angles. When stationary the Sense-HAT will record a measurement of 1*g* (*g* = acceleration due to gravity) straight down, and this can be used to calculate which way up it is.
+The Sense HAT measures orientation in three axes (x, y, z) but we want to turn that data into a simple rotation angle using the **x** and **y** data. The table below shows how x and y relate to these rotation angles. When stationary, the Sense HAT will record a measurement of 1*g* (*g* = acceleration due to gravity) straight down, and this can be used to calculate which way up it is.
 
 |  0 degrees | 90 degrees  | 180 degrees | 270 degrees |
 | - | - | - | - |
@@ -52,15 +52,15 @@ The Sense-HAT measures orientation in 3 axis (x,y,z) but we want to turn that da
 | **x = 0** | **x = -1** | **x = 0** | **x = 1** |
 | **y = 1** | **y = 0** | **y = -1** | **y = 0** |
 
-As your lock program is going to need to regularly calculate its orientation angle you should create a function to perform this calculation. This function will need values of **x** and **y** as inputs and will return the orientation angle as an output. In your ** Functions ** section add the following code:
+As your lock program is going to need to regularly calculate its orientation angle, you should create a function to perform this calculation. This function will need values of **x** and **y** as inputs and will return the orientation angle as an output. In your ** Functions ** section, add the following code:
 
 ```python
 ##### Functions #####
 def get_angle(x,y):
-  x = round(x, 0)       #round x,y to a whole number
+  x = round(x, 0)       #round x, y to a whole number
   y = round(y, 0)
 
-  if x == -1:           #Checks the x and y values and decides on a corresponding
+  if x == -1:           #Checks the x and y values and decides on a corresponding angle
       angle= 180
   elif x == 1:           
       angle= 0
@@ -72,10 +72,10 @@ def get_angle(x,y):
   return angle          #Returns the appropriate angle to the main program.
 ```
 
-This takes the raw values of x and y and rounds them to the nearest whole number, before using an *if* statement to decide which angle the Sense-HAT is at. Finally it returns the value of angle as its output.
+This takes the raw values of x and y and rounds them to the nearest whole number, before using an **if** statement to decide which angle the Sense HAT is at. Finally it returns the value of angle as its output.
 
 ## Setting up you combination lock
-Below your **Locks** section you need to add the following code:
+Below your **Locks** section, you need to add the following code:
 
 ```python
 ##### Locks #####
@@ -86,9 +86,9 @@ code = [0,180,90,0,270]
 complete = []
 ```
 
-The first line of code tells the sense hat to display the locked image and the next two lines create two lists.
-- The *code* list contains the elements in the combination lock, in the example 5 numbers have been used but more could be added for a more complex code.
-- The second list *complete* will be used to store the completed steps of the combination, each time the user gets a step correct that number gets moved to the complete list.
+The first line of code tells the Sense HAT to display the "locked" image and the next two lines create two lists.
+- The **code** list contains the elements in the combination lock, in the example 5 numbers have been used but more could be added for a more complex code.
+- The second list **complete** will be used to store the completed steps of the combination: each time the user gets a step correct, that number gets moved to the complete list.
 
 ![Item moving](images/list-move.png)
 
@@ -96,7 +96,7 @@ When the code list is empty then the combination has been completed and the lock
 
 ## Creating an unlocking loop
 
-Next you need to create a loop which will continue until the *code* list has been emptied, for this you'll need a **while** loop.
+Next you need to create a loop which will continue until the **code** list has been emptied. For this you'll need a **while** loop.
 
 1. Start your loop with the following code:
 
@@ -107,10 +107,10 @@ Next you need to create a loop which will continue until the *code* list has bee
       y = acc["y"]
   ```
 
-  The condition `len(code)>0` checks whether the length of the combination code is greater than 0. If it is then the loop continues, if not it exits.
+  The condition `len(code)>0` checks whether the length of the combination code is greater than 0. If it is, then the loop continues; if not, it exits.
   The following three lines get the acceleration data from the sensor and store x and y data in two variables.
 
-1. Next you'll need to convert *x* and *y* to an angle usig your *get_angle* function and compares that with the first item in the *code* list.
+1. Next you'll need to convert `x` and `y` to an angle using your `get_angle` function and compare that with the first item in the **code** list.
 
   ```python3
   if get_angle(x,y) == code[0]:
@@ -118,7 +118,7 @@ Next you need to create a loop which will continue until the *code* list has bee
        sense.set_pixel(0,0,g)
   ```
 
-  - The condition `get_angle(x,y) == code[0]` uses the *get_angle* function to convert x,y to an angle, it then check whether the angle matches the first item in *code*
+  - The condition `get_angle(x,y) == code[0]` uses the `get_angle` function to convert x,y to an angle, it then checks whether the angle matches the first item in *code*
   - If the angle matches then the line `complete.append(code.pop(0))` removes (or "pops") the first item from *code* and adds it to the *completed* list.
   - The `sense.set_pixel(0,0,g)` line turns a single LED green to inform the user they got that step right.
 
