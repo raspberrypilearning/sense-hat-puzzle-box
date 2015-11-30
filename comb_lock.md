@@ -74,7 +74,7 @@ def get_angle(x,y):
 
 This takes the raw values of x and y and rounds them to the nearest whole number, before using an `if` statement to decide which angle the Sense HAT is at. Finally it returns the value of angle as its output.
 
-## Setting up you combination lock
+## Setting up your combination lock
 Below your `Locks` section, you need to add the following code:
 
 ```python
