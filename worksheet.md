@@ -17,7 +17,7 @@ You may think that keeping our information secret and secure is a modern obsessi
   > Text or objects were hidden inside ornate boxes with secret compartments, or requiring a complex technique to open them. These boxes were popular in Japan where they are known as *Yosegi*; the boxes usually require many steps to open them.  
 
 
-  | ![Yosegi](images/yosegi.png) | <iframe width="256" height="192" src="https://www.youtube.com/embed/2A-I5J19GKI" frameborder="0" allowfullscreen></iframe> |
+| ![Yosegi](images/yosegi.png) | <iframe width="256" height="192" src="https://www.youtube.com/embed/2A-I5J19GKI" frameborder="0" allowfullscreen></iframe> |
   |------------------------------|-------------|
 
 Now it's your turn to make a digital puzzle box like the ones shown above. Using a Raspberry Pi and a Sense HAT add on board, you will "hide" a message behind a series of locks or puzzles that the user will have to solve. You'll be making use of the sensors built into the [Sense HAT](https://www.raspberrypi.org/learning/astro-pi-guide/) for your puzzles.
