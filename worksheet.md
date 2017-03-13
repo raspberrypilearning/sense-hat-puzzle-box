@@ -158,7 +158,7 @@ The Sense HAT can detect the air pressure around it. This could be changed in a 
 
 Using some additional hardware, your puzzle box is able to calculate where in the world it is. A really challenging lock would be one that requires the user to go to a specific place.
 
-## What's next?
+## What next?
 
 - Beyond the locks demonstrated in this activity, there are many more you could create using the other sensors on the Sense HAT, perhaps using the joystick, humidity or magnetic sensors.
 - Why not build an actual physical box for your Raspberry Pi and Sense Hat?
