@@ -135,7 +135,7 @@ Next, you need to create a loop which will continue until the `code` list has be
        sense.set_pixel(0,0,g)
    else:
        code = complete + code
-       steps = []
+       complete = []
        sense.set_pixel(0,0,r)
      ```
 
