@@ -135,9 +135,9 @@ Next, you need to create a loop which will continue until the `code` list has be
        sense.set_pixel(0,0,g)
    else:
        code = complete + code
-       steps = []
+       complete = []
        sense.set_pixel(0,0,r)
-     ```
+  ```
 
 1. Finally, you'll need to add some `sleep` commands to give the user time to rotate their Sense HAT. Using two sleep commands and turning the LED off in between will create a flashing LED that informs the user whether they've got the steps correct.
 
