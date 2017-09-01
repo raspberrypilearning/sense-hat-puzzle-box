@@ -2,20 +2,24 @@
 
 ### Hardware
 
-* Raspberry Pi Sense HAT
+* A Raspberry Pi
+* A Sense HAT
 * HAB Supplies GPS board
 
 ### Software
 
-#### Software Installation
+- Python 3
 
-#### Python Sense HAT libraries
+[[[rpi-install-software]]]
 
-To install the Sense HAT software you need, run the following commands from a Terminal window:
+You'll need to make sure you have the following package installed:
+
+- Sense HAT for Python 3
+
+Type this command into the terminal to install the package:
 
 ```bash
 sudo apt-get install sense-hat
-sudo pip-3.2 install pillow
 ```
 
 #### Python piGPS library

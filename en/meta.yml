@@ -1,4 +1,3 @@
----
 title: Sense HAT Puzzle Box
 hero_image: images/banner.png
 description: Use the Sense HAT and Python to hide secret information
@@ -21,4 +20,3 @@ steps:
 - title: Adding some pixel art
 - title: Adding locks
 - title: What next?
-
