@@ -1,63 +1,26 @@
-## Adding some pixel art
+## Adding locks
 
-It would be helpful to show the user some feedback as to whether the box is locked or not. For this example you're going to use a pair of padlock images: one red padlock (locked) and one green (unlocked).
+Now your basic code is ready, it's time to add some locks to protect your secret message. These locks can be added in any order and it's up to you to choose which you will add.
 
-![Padlock Images](images/padlocks.png)
+Here are some ideas:
 
-In order to create these images, you're first going to choose some colours to use; the Sense HAT uses **R**ed, **G**reen and **B**lue values to describe colour. The amount of red, green and blue is described by 3 numbers between 0 and 255. In the example image there are 3 colours used:
+### [Temperature Lock](temp_lock.md)
 
-  - **Red** = (255,0,0) # Maximum amount of red, with no green or blue
-  - **Green** = (0,255,0 # No red, full green, no blue
-  - **White** = (255,255,255) # Maximum of all three colours
-  - **Empty / Black** = (0,0,0) # All colours off
+Using the Sense HAT's temperature sensors, this lock will require the user to raise or lower the temperature by a number of degrees in order to unlock.
 
-- In your code you should add these lines in the **Pixel Art** section, which will store your colour choices in some variables and then create two lists to represent the two images. If you look carefully you can make out the shape of the padlocks.
+### [Orientation Combination Lock](comb_lock.md)
 
-  ```python3
-  ##### Pixel Art #####
-  r = (255, 0, 0)
-  g = (0, 255, 0)
-  w = (255, 255, 255)
-  e = (0, 0, 0)
+It's possible for the Sense HAT to know which way up it is, and point up, down, left, and right. To break this lock, the user must rotate the device to match a sequence of orientations; for example, the combination might be up, left, up, down and the user would have to rotate the Sense HAT in those directions.
 
-  locked = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,w,w,e,e,e,
-    e,e,w,e,e,w,e,e,
-    e,e,w,e,e,w,e,e,
-    e,e,r,r,r,r,e,e,
-    e,e,r,r,r,r,e,e,
-    e,e,r,r,r,r,e,e,
-    e,e,e,e,e,e,e,e
-    ]
+### [Pressure Lock](pressure_lock.md)
 
-  unlocked = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,e,e,w,w,e,
-    e,e,e,e,w,e,e,w,
-    e,e,e,e,w,e,e,w,
-    e,e,g,g,g,g,e,e,
-    e,e,g,g,g,g,e,e,
-    e,e,g,g,g,g,e,e,
-    e,e,e,e,e,e,e,e
-    ]
-  ```
+The Sense HAT can detect the air pressure around it. This could be changed in a number of ways:
 
-- Next, in your **Main Program** section you should add these lines which will show the locked image for 2 seconds:
-  
-  ```python3
-  sense.set_pixels(locked)
-  sleep(2)
-  ```
+ - Placing the Raspberry Pi in a sealed container and squashing it.
+ - Cooling or heating the air in the container before sealing it. The air will expand or contract over time, which will change the pressure.
+ - Fast-moving air affects the pressure, and you can detect air being blown onto the Sense HAT.
 
-- After your **Unlocked** section you should do the same thing, but this time with your unlocked image:
+### [Location Lock](gps_lock.md)
 
-  ```python3
-  sense.set_pixels(unlocked)
-  sleep(2)
-  ```
-
-- Your program should now look like this:
-
-  ![Code version 2](images/code2.png)
+Using some additional hardware, your puzzle box is able to calculate where in the world it is. A really challenging lock would be one that requires the user to go to a specific place.
 

@@ -14,9 +14,8 @@ site_areas: ''
 steps:
 - title: Introduction
 - title: What you will need
-- title: Sense HAT Puzzle Box
-- title: Early cryptography
-- title: Getting started
+- title: Connect to the Sense HAT
+- title: Set up the structure
 - title: Adding some pixel art
 - title: Adding locks
 - title: What next?

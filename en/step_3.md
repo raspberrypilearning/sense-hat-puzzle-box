@@ -1,4 +1,9 @@
-## Sense HAT Puzzle Box
+## Connect to the Sense HAT
 
-In this activity you're going to be creating an electronic puzzle box that could be used to keep some information safe, or simply used for its entertainment value. However, before you start here's a quick bit of history.
++ If you have a Sense HAT, attach it to your Raspberry Pi.
 
+[[[rpi-sensehat-attach]]]
+
++ If you do not have a Sense HAT, you could create the project using the Sense HAT emulator.
+
+[[[rpi-sensehat-emulator]]]
