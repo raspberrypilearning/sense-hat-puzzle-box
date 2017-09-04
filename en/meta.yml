@@ -17,5 +17,5 @@ steps:
 - title: Connect to the Sense HAT
 - title: Set up the structure
 - title: Locked or not?
-- title: Adding locks
+- title: Temperature lock
 - title: What next?

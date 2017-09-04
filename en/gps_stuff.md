@@ -47,6 +47,25 @@
 
       ![Yosegi](images/yosegi.png)
 
-       <iframe width="256" height="192" src="https://www.youtube.com/embed/2A-I5J19GKI" frameborder="0" allowfullscreen></iframe> 
+       <iframe width="256" height="192" src="https://www.youtube.com/embed/2A-I5J19GKI" frameborder="0" allowfullscreen></iframe>
 
     Now it's your turn to make a digital puzzle box like the ones shown above. Using a Raspberry Pi and a Sense HAT add on board, you will "hide" a message behind a series of locks or puzzles that the user will have to solve. You'll be making use of the sensors built into the [Sense HAT](https://projects.raspberrypi.org/en/projects/astro-pi-guide/) for your puzzles.
+
+
+
+
+    ### [Orientation Combination Lock](comb_lock.md)
+
+    It's possible for the Sense HAT to know which way up it is, and point up, down, left, and right. To break this lock, the user must rotate the device to match a sequence of orientations; for example, the combination might be up, left, up, down and the user would have to rotate the Sense HAT in those directions.
+
+    ### [Pressure Lock](pressure_lock.md)
+
+    The Sense HAT can detect the air pressure around it. This could be changed in a number of ways:
+
+     - Placing the Raspberry Pi in a sealed container and squashing it.
+     - Cooling or heating the air in the container before sealing it. The air will expand or contract over time, which will change the pressure.
+     - Fast-moving air affects the pressure, and you can detect air being blown onto the Sense HAT.
+
+    ### [Location Lock](gps_lock.md)
+
+    Using some additional hardware, your puzzle box is able to calculate where in the world it is. A really challenging lock would be one that requires the user to go to a specific place.
