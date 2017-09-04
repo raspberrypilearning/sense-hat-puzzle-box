@@ -10,7 +10,7 @@ r = (255, 0, 0)
 
 [[[generic-theory-colours]]]
 
-+ Create two different lists of 64 items, one to represent the locked padlock and the other to represent the opened padlock.
++ Next, create two different lists of 64 items, one to represent the locked padlock and the other to represent the opened padlock.
 
 ![Padlock Images](images/padlocks.png)
 

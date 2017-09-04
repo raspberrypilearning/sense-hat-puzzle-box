@@ -2,73 +2,68 @@
 
 Using the Sense HAT's temperature sensors, this lock will require the user to raise or lower the temperature by a number of degrees in order to unlock.
 
+### How will the lock work?
+
+The lock will work as follows:
+
+- Choose a target temperature close to the current temperature
+- Display a clue as to whether the Sense HAT is too cold or too hot compared to the target temperature
+- Continually check the current temperature against the target temperature
+- When the target temperature is reached, display the unlocked graphic
+
+The list above roughly describes the program you're going to write and is called an **algorithm** or a set of instructions.
 
 
-- Chooses a target temperature close to the current temperature
-- Gives you a clue as to whether it's too cold or too hot compared to the target temperature
-- Continually checks the current temperature until it's close enough to the target temperature
-- Finally, the program will give an indication that the temperature lock is unlocked
++ In the **locks** section, create a variable called `current_temp` and assign it the value of a reading from the Sense HAT to find the current temperature.
 
-The list above roughly describes the program you're going to write and is called an **algorithm** or a set of instructions. We can make this algorithm more precise by breaking the steps up into smaller tasks; in computer science we call this **decomposition**.
+[[[rpi-sensehat-temperature]]]
 
-Here's the same algorithm written in a slightly more detailed way:
++ Next, create a list of numbers called `temp_diffs`, containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers, the harder the lock is going to be to break.
 
-> ##### Finds out the current temperature.
-> > Measure the temperature using the Sense HAT and store the result as *current_temp*
+```python
+temp_diffs=[
+  -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
+  0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
+]
+```
 
-> ##### Choose a target temperature close to the current temperature.  
-> > Set up a list of numbers that can be added or subtracted from the *current_temp* and call this list *temp_diffs*  
++ Create another new variable called `diff`. Choose a temperature difference at random from the list and assign this as the variable's value.
 
-> > Randomly pick a value from *temp_diffs* and call this number *diff*  
+[[[generic-python-random-choice]]]
 
-> > Add the selected *diff* to the *current_temp* to get the *target_temp*  
++ Create a new variable called `target_temp` which is equal to the `current_temp` plus the randomly chosen difference. Print out the value of this variable so you can see whether your code worked.
 
-> ##### Show whether it's too cold or too hot compared to the target temperature  
-> > If the *diff* is positive then the LEDs should be all blue, showing the device is colder than *target_temp*  
 
-> > Otherwise the LEDs should be all red, showing the device is hotter than *target_temp*
 
-> ##### Continually watches the current temperature until it's close enough to the target temperature  
-> > While the *diff* is greater than 0.1  
+--- hints ---
 
-> > Measure the current temperature using the Sense HAT  
+--- hint ---
+Use the `get_temperature` method to obtain the current temperature. This is called the **ambient temperature**.
+--- /hint ---
 
-> > Recalculate the *diff* by subtracting the *current_temp* from the *target_temp*  
+--- hint ---
+Don't forget to add the import statement to your **libraries** section to allow you to use the random choice function:
 
-> ##### Indicate that the temperature lock is unlocked**  
-> > Light all the LEDs green  
+```python
+from random import choice
+```
+--- /hint ---
 
-> > Wait for 2 seconds  
+--- hint ---
+Here is how your code should look:
 
-> > Switch all the LEDs off.  
+```python
+current_temp = sense.get_temperature()
+temp_diffs=[
+  -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
+  0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
+]
+diff = choice(temp_diffs)
+target_temp = current_temp + diff
+```
 
-## Setting a target temperature
-
-1. Before you write the code for this algorithm, you'll need to add an extra `import` line to allow your program to make a random choice. Add this to your `import` section:
-
-  `from random import choice`
-
-1. The first thing you'll need to do is ask the Sense HAT to check and store the current ambient temperature. Under the *Locks* section of your code, add a *Temperature Lock* heading and get the current temperature using this line:
-
-  `temp = sense.get_temperature()`
-
-1. Next, create a list of numbers called `temp_diffs`, containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers, the harder the lock is going to be to break.
-
-  ```python3
-  temp_diffs=[
-      -1.5,-1.4,-1.3,-1.2,-1.1,-1,-0.9,-0.8,-0.7,-0.6,
-      0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5
-    ]
-  ```
-
-  There are other ways to generate a list of numbers rather than typing them in, but for now this way is sufficient.
-
-1. Choose a temperature difference at random and add this to your current temperature to get a target temperature.
-
-  ```Python3
-  diff = choice(temp_diffs)
-  target_temp = temp + diff
-  ```
+--- /hint ---
+--- /hints ---
 
 ## Waiting for the temperature to change
 
