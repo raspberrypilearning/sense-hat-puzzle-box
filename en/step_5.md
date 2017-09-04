@@ -1,63 +1,78 @@
-## Adding some pixel art
+## Locked or not?
 
 It would be helpful to show the user some feedback as to whether the box is locked or not. For this example you're going to use a pair of padlock images: one red padlock (locked) and one green (unlocked).
 
++ In the **Pixel art** section, create four variables called `r`, `g`, `w` and `b`. These should represent the colours red, green, white and black/blank, in RGB format. For example, your `r` variable should look like this:
+
+```python
+r = (255, 0, 0)
+```
+
+[[[generic-theory-colours]]]
+
++ Create two different lists, one to represent the locked padlock and the other to represent the opened padlock.
+
 ![Padlock Images](images/padlocks.png)
 
-In order to create these images, you're first going to choose some colours to use; the Sense HAT uses **R**ed, **G**reen and **B**lue values to describe colour. The amount of red, green and blue is described by 3 numbers between 0 and 255. In the example image there are 3 colours used:
+[[[rpi-sensehat-multiple-pixels]]]
 
-  - **Red** = (255,0,0) # Maximum amount of red, with no green or blue
-  - **Green** = (0,255,0 # No red, full green, no blue
-  - **White** = (255,255,255) # Maximum of all three colours
-  - **Empty / Black** = (0,0,0) # All colours off
+--- hints ---
 
-- In your code you should add these lines in the **Pixel Art** section, which will store your colour choices in some variables and then create two lists to represent the two images. If you look carefully you can make out the shape of the padlocks.
+--- hint ---
+Create two lists, each containing 64 items. The items should be the names of the colour variables you just created, so for example if you want to place a red pixel in the top left corner of the LED matrix, the first item in the list would be `r`.
+--- /hint ---
 
-  ```python3
-  ##### Pixel Art #####
-  r = (255, 0, 0)
-  g = (0, 255, 0)
-  w = (255, 255, 255)
-  e = (0, 0, 0)
+--- hint ---
+Here is how your code should look:
 
-  locked = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,w,w,e,e,e,
-    e,e,w,e,e,w,e,e,
-    e,e,w,e,e,w,e,e,
-    e,e,r,r,r,r,e,e,
-    e,e,r,r,r,r,e,e,
-    e,e,r,r,r,r,e,e,
-    e,e,e,e,e,e,e,e
-    ]
+```python
 
-  unlocked = [
-    e,e,e,e,e,e,e,e,
-    e,e,e,e,e,w,w,e,
-    e,e,e,e,w,e,e,w,
-    e,e,e,e,w,e,e,w,
-    e,e,g,g,g,g,e,e,
-    e,e,g,g,g,g,e,e,
-    e,e,g,g,g,g,e,e,
-    e,e,e,e,e,e,e,e
-    ]
-  ```
+locked = [
+e,e,e,e,e,e,e,e,
+e,e,e,w,w,e,e,e,
+e,e,w,e,e,w,e,e,
+e,e,w,e,e,w,e,e,
+e,e,r,r,r,r,e,e,
+e,e,r,r,r,r,e,e,
+e,e,r,r,r,r,e,e,
+e,e,e,e,e,e,e,e
+]
 
-- Next, in your **Main Program** section you should add these lines which will show the locked image for 2 seconds:
-  
-  ```python3
-  sense.set_pixels(locked)
-  sleep(2)
-  ```
+unlocked = [
+e,e,e,e,e,e,e,e,
+e,e,e,e,e,w,w,e,
+e,e,e,e,w,e,e,w,
+e,e,e,e,w,e,e,w,
+e,e,g,g,g,g,e,e,
+e,e,g,g,g,g,e,e,
+e,e,g,g,g,g,e,e,
+e,e,e,e,e,e,e,e
+]
+```
+--- /hint ---
+--- /hints ---
 
-- After your **Unlocked** section you should do the same thing, but this time with your unlocked image:
++ In the **main program** section, add some code to display the locked image on the LED matrix, then wait 2 seconds, then display the unlocked image.
 
-  ```python3
-  sense.set_pixels(unlocked)
-  sleep(2)
-  ```
+[[[generic-python-sleep]]]
 
-- Your program should now look like this:
+--- hints ---
+--- hint ---
+Use the `set_pixels` method to display the list of pixels on the LED matrix.
 
-  ![Code version 2](images/code2.png)
+--- /hint ---
 
+--- hint ---
+Use the `sleep(1)` method to ask the program to wait. You can change the number in the brackets to change how long the program sleeps for, so `sleep(1)` will wait for 1 second.
+--- /hint ---
+
+--- hint ---
+Here is how the code should look:
+
+```python
+sense.set_pixels(locked)
+sleep(2)
+sense.set_pixels(unlocked)
+```
+--- /hint ---
+--- /hints ---

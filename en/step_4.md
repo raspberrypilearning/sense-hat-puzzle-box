@@ -29,13 +29,13 @@ The **Locks** section will eventually contain your code to prevent the program g
 from sense_hat import SenseHat
 ```
 
-+ Add this code in the "Main program" section to connect to the Sense HAT.
++ Add this code in the **Main program** section to connect to the Sense HAT.
 
 ```python
 sense = SenseHat()
 ```
 
-+ In the "Secret message" section, add a message of your choice which the user will only get to see after they have performed all of the correct actions to unlock the puzzle box.
++ In the **Secret message** section, add a message of your choice which the user will only get to see after they have performed all of the correct actions to unlock the puzzle box.
 
 [[[rpi-sensehat-show-message]]]
 
