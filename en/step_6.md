@@ -7,14 +7,17 @@ Using the Sense HAT's temperature sensors, this lock will require the user to ra
 The lock will work as follows:
 
 - Choose a target temperature close to the current temperature
-- Display a clue as to whether the Sense HAT is too cold or too hot compared to the target temperature
+- Display a colour clue as to whether the Sense HAT is too cold or too hot compared to the target temperature
 - Continually check the current temperature against the target temperature
 - When the target temperature is reached, display the unlocked graphic
 
 The list above roughly describes the program you're going to write and is called an **algorithm** or a set of instructions.
 
+### Create the lock
 
 + In the **locks** section, create a variable called `current_temp` and assign it the value of a reading from the Sense HAT to find the current temperature.
+
+Take a look at this information to find out how to take a temperature reading, and add the one line of code you need to your program.
 
 [[[rpi-sensehat-temperature]]]
 
@@ -32,8 +35,6 @@ temp_diffs=[
 [[[generic-python-random-choice]]]
 
 + Create a new variable called `target_temp` which is equal to the `current_temp` plus the randomly chosen difference. Print out the value of this variable so you can see whether your code worked.
-
-
 
 --- hints ---
 
