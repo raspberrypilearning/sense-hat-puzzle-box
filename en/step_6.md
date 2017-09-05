@@ -13,7 +13,7 @@ The lock will work as follows:
 
 The list above roughly describes the program you're going to write and is called an **algorithm** or a set of instructions.
 
-### Create the lock
+### Choose a target temperature
 
 + In the **locks** section, create a variable called `current_temp` and assign it the value of a reading from the Sense HAT to find the current temperature.
 
@@ -34,7 +34,7 @@ temp_diffs=[
 
 [[[generic-python-random-choice]]]
 
-+ Create a new variable called `target_temp` which is equal to the `current_temp` plus the randomly chosen difference. Print out the value of this variable so you can see whether your code worked.
++ Create a new variable called `target_temp` which is equal to the `current_temp` plus the randomly chosen difference. Print out the value of this variable so you can see whether your code worked. You can remove the `print` once you have checked your code works.
 
 --- hints ---
 
@@ -61,14 +61,80 @@ temp_diffs=[
 ]
 diff = choice(temp_diffs)
 target_temp = current_temp + diff
+print(target_temp)
 ```
 
 --- /hint ---
 --- /hints ---
 
-## Waiting for the temperature to change
+### Display a colour clue
 
-The next part of your lock program is to repeatedly check the temperature until it reaches, or is close to, the target temperature.
+You need to give your user a visual clue as to what they need to do to unlock the temperature lock. For example, you could display blue on the Sense HAT's LED matrix if the current temperature is too cold, or red if it is currently too hot.
+
++ Find out the code you will need to display a colour on the Sense HAT's LED matrix from the information below:
+
+[[[rpi-sensehat-display-colour]]]
+
++ Write an `if` statement to check whether the `current_temp` is greater than the `target_temp`. If it is, display red on the LED matrix, and if not display blue.
+
+[[[generic-python-conditional-selection-with-boolean]]]
+
+--- hints ---
+--- hint ---
+Use the `clear()` method to display a colour on the LED matrix, and put the RGB values of the colour you would like in the brackets. For example, to fill the screen with green you would write
+
+```python
+sense.clear(0, 255, 0)
+```
+--- /hint ---
+--- hint ---
+You will need to use an `if`/`else` statement to decide whether the current temperature is greater than (`>`) the target temperature. The `else` part should contain the code you want to run if the current temperature is not greater than the target temperature.
+--- /hint ---
+
+--- hint ---
+Here is how your code should look:
+
+```python
+if current_temp > target_temp:
+  sense.clear(255,0,0)
+else:
+  sense.clear(0,0,255)
+```
+--- /hint ---
+--- /hints ---
+
++ If you run your code, you will only see a brief flash of the colour before your secret message is revealed. Add a `#` before your secret message to comment it out so that you can more easily see which colour is displayed.
+
+![Comment out](images/comment-out.png)
+
+You can remove the `#` once you know your lock is working properly.
+
+### Continually check the temperature
+
+At the moment your lock will only check the temperature once. The next part of your lock program is to repeatedly check the temperature until it reaches, or is close to, the target temperature.
+
+You can use the `abs()` function to find out how big the difference between the current temperature and the target temperature is, ignoring whether the difference is positive or negative.
+
+```python
+abs(target_temp - current_temp)
+```
+
++ Create a `while` loop that runs while the difference between the current temperature and the target temperature is larger than 0.1. Put the code you wrote to display the colours in the while loop by **indenting** it.
+
+[[[generic-python-while-counter]]]
+
+--- hints ---
+--- hint ---
+Use the `abs()` function to find the size of the difference between the temperatures, and then compare that difference to 0.1
+--- /hint ---
+
+--- hint ---
+Here is how your code should look:
+
+![Using abs](images/using-abs.png)
+--- /hint ---
+
+--- /hints ---
 
 1. Begin a `while` loop which will only end when the current temperature is close enough to the target temperature. The `abs()` function is used to find the size of the temperature difference, by ignoring whether it's positive or negative.
 
@@ -90,28 +156,11 @@ The next part of your lock program is to repeatedly check the temperature until 
 
 ![Idle Output](images/temp_diffs.png)
 
-## Adding a colour prompt
 
-You may want to give your user a visual clue as to what they need to do. Include the following code in your lock, which will show red when the temperature is too high and blue when too cold.
-
-  ```Python3
-    if diff > 0:
-      sense.clear(0,0,150)
-    else:
-      sense.clear(150,0,0)
-  ```
-
-Your final lock code should look like the image below and can be downloaded [here](code/puzzle_box_temp.py).
-
-![Temp Lock Code](images/temp_code_complete.png)
+### Display the unlock picture
 
 ## Testing your lock
 
 To test your lock, you could carefully hold your Raspberry Pi above a hot or cold drink to affect the temperature.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zIgaA9zaaA4" frameborder="0" allowfullscreen></iframe>
-
-## What's next?
-
-- You may want to add [other locks](worksheet.md) to your puzzle box.
-- You could adapt this lock by changing the temperature range needed to unlock it, or by having several temperatures you have to match in sequence.
