@@ -22,4 +22,6 @@ steps:
 - title: Display a clue
 - title: Check for unlock
 - title: "Challenge: Pressure lock"
+- title: Combination lock
+- title: Convert orientation to an angle
 - title: What next?
