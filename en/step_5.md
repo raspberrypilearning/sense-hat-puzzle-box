@@ -28,25 +28,25 @@ Here is how your code should look:
 ```python
 
 locked = [
-e,e,e,e,e,e,e,e,
-e,e,e,w,w,e,e,e,
-e,e,w,e,e,w,e,e,
-e,e,w,e,e,w,e,e,
-e,e,r,r,r,r,e,e,
-e,e,r,r,r,r,e,e,
-e,e,r,r,r,r,e,e,
-e,e,e,e,e,e,e,e
+    b, b, b, b, b, b, b, b,
+    b, b, b, w, w, b, b, b,
+    b, b, w, b, b, w, b, b,
+    b, b, w, b, b, w, b, b,
+    b, b, r, r, r, r, b, b,
+    b, b, r, r, r, r, b, b,
+    b, b, r, r, r, r, b, b,
+    b, b, b, b, b, b, b, b
 ]
 
 unlocked = [
-e,e,e,e,e,e,e,e,
-e,e,e,e,e,w,w,e,
-e,e,e,e,w,e,e,w,
-e,e,e,e,w,e,e,w,
-e,e,g,g,g,g,e,e,
-e,e,g,g,g,g,e,e,
-e,e,g,g,g,g,e,e,
-e,e,e,e,e,e,e,e
+    b, b, b, b, b, b, b, b,
+    b, b, b, b, b, w, w, b,
+    b, b, b, b, w, b, b, w,
+    b, b, b, b, w, b, b, w,
+    b, b, g, g, g, g, b, b,
+    b, b, g, g, g, g, b, b,
+    b, b, g, g, g, g, b, b,
+    b, b, b, b, b, b, b, b
 ]
 ```
 --- /hint ---

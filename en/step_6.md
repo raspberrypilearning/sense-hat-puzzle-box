@@ -111,7 +111,7 @@ You can remove the `#` once you know your lock is working properly.
 
 ### Continually check the temperature
 
-At the moment your lock will only check the temperature once. The next part of your lock program is to repeatedly check the temperature until it reaches, or is close to, the target temperature.
+At the moment your lock will only check the temperature once. The next part of your lock program needs to repeatedly check the temperature until it reaches, or is close to, the target temperature.
 
 You can use the `abs()` function to find out how big the difference between the current temperature and the target temperature is, ignoring whether the difference is positive or negative.
 
@@ -119,7 +119,11 @@ You can use the `abs()` function to find out how big the difference between the 
 abs(target_temp - current_temp)
 ```
 
-+ Create a `while` loop that runs while the difference between the current temperature and the target temperature is larger than 0.1. Put the code you wrote to display the colours in the while loop by **indenting** it.
++ Create a variable called `tolerance` - this is how close the current temperature will have to be to the target temperature for the lock to be unlocked. You can set the tolerance as `0.1` to begin with, and adjust it if you want to make the lock easier or harder to unlock.
+
+**Note:** If you are using the Sense HAT emulator you will need to set the tolerance to `1` because it is not possible to simulate temperature changes with sufficient precision. However, this means that you will also have to change your range of `temp_diffs` because if a diff is chosen that is less than 1, your box will instantly unlock!
+
++ Create a `while` loop that runs while the difference between the current temperature and the target temperature is larger than the tolerance. Put the code you wrote to display the colours in the while loop by **indenting** it.
 
 [[[generic-python-while-counter]]]
 
@@ -136,31 +140,18 @@ Here is how your code should look:
 
 --- /hints ---
 
-1. Begin a `while` loop which will only end when the current temperature is close enough to the target temperature. The `abs()` function is used to find the size of the temperature difference, by ignoring whether it's positive or negative.
+You might expect the colour to change if you move the temperature slider, but if you try this while the program is running, it won't work. Why?
 
-  `while abs(diff) > 0.1:`
+--- collapse ---
+---
+title: Answer
+---
+Once the program enters the `while` loop, the current temperature is never updated. It remains exactly the same, so there is no chance of the colour ever updating and no chance that the loop will ever end.
+--- /collapse ---
 
-  This `while` loop will end when the current temperature is within 0.1 degrees of the target temperature.
-
-1. Add code within your loop to find the new current temperature and store it as **temp**, before using it to recalculate the difference(**diff**) from the target temperature. Your should also print out the **diff** so that you can test your program.
-
-  ```Python3
-  while abs(diff) > 0.1:
-      temp = sense.get_temperature()
-
-      diff = target_temp - temp
-      print(diff)
-  ```
-
-  When you run your program by pressing F5, you should eventually see some numbers scroll past indicating the current temperature difference. Over time, you should be able to increase or decrease the temperature until it gets close enough and unlocks.
-
-![Idle Output](images/temp_diffs.png)
-
++ Fix this problem by adding a line of code to take the current temperature **inside** the loop. Don't delete or move the original line of code which takes the temperature though as you still need that to take the ambient temperature at the start.
 
 ### Display the unlock picture
+You already have the code which displays the locked image followed by the unlocked image. Ensure that this code is situated after your while loop and not indented.
 
-## Testing your lock
-
-To test your lock, you could carefully hold your Raspberry Pi above a hot or cold drink to affect the temperature.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zIgaA9zaaA4" frameborder="0" allowfullscreen></iframe>
++ To test your lock, you could carefully hold your Raspberry Pi near a heater or an open window to affect the temperature.
