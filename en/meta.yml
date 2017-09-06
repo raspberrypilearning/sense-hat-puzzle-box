@@ -24,4 +24,5 @@ steps:
 - title: "Challenge: Pressure lock"
 - title: Combination lock
 - title: Convert orientation to an angle
+- title: Set the combination
 - title: What next?
