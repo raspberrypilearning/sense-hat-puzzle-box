@@ -25,4 +25,5 @@ steps:
 - title: Combination lock
 - title: Convert orientation to an angle
 - title: Set the combination
+- title: Check the combination
 - title: What next?
