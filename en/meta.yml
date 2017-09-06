@@ -18,4 +18,8 @@ steps:
 - title: Set up the structure
 - title: Locked or not?
 - title: Temperature lock
+- title: Choose a target temperature
+- title: Display a clue
+- title: Check for unlock
+- title: "Challenge: Pressure lock"
 - title: What next?
