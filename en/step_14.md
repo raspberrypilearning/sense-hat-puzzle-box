@@ -19,6 +19,8 @@ while len(combination) > 0:
   y = acc["y"]
 ```
 
++ Round the `x` and `y` values to zero decimal places using the `round` function
+
 + Create a new variable called `angle`, then convert `x` and `y` to an angle using the `get_angle` function you wrote earlier and store the result in this variable.
 
 + Write an `if` statement to compare the angle with the first item in the `code` list and check whether they are the same.
@@ -77,3 +79,5 @@ Finally, you'll need to add some `sleep` commands to give the user time to rotat
 
 ## Testing your lock
 To test the lock, run your program and rotate the Sense HAT. You may want to temporarily comment out the code for your other locks so that you only have one lock to test.
+
+This lock is quite difficult to test on the Sense HAT emulator by manipulating the model, so you might need to alter the code to give you more time to rotate the Sense HAT in between each angle. 
