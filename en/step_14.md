@@ -1,8 +1,6 @@
 ## Check the combination
 
-To check the combination, you need to create a loop which will continue until the `code` list has been emptied. For this you'll need a `while` loop.
-
-+ Create a `while` loop which will run while the number of items in the `combination` list is greater than 0.
+To check the combination, you need to create a loop which will continue until the `combination` list has been emptied. For this you'll need a `while` loop.
 
 To find the number of items in a list, you can use the `len()` function to find the length of the list, like this:
 
@@ -10,7 +8,9 @@ To find the number of items in a list, you can use the `len()` function to find 
 len(combination)
 ```
 
-+ Inside the loop, get the acceleration data from the sensor using `get_accelerometer_raw`. Then, create two variables called `x` and `y` to store the x and y data respectively.s
++ Still in the **locks** section, create a `while` loop which will run while the number of items in the `combination` list is greater than 0.
+
++ Inside the loop, get the acceleration data from the sensor using `get_accelerometer_raw`. Then, create two variables called `x` and `y` to store the x and y data respectively.
 
 ```python
 while len(combination) > 0:
@@ -21,39 +21,59 @@ while len(combination) > 0:
 
 + Create a new variable called `angle`, then convert `x` and `y` to an angle using the `get_angle` function you wrote earlier and store the result in this variable.
 
-+ Write an `if` statement to compare the angle with the first item in the `code` list.
++ Write an `if` statement to compare the angle with the first item in the `code` list and check whether they are the same.
 
 [[[generic-python-list-index]]]
 
++ If they are the same (i.e. the player has turned the Sense HAT to the correct angle), `pop` the first item from the combination list and `append` it to the complete list, like this.
+
 ```python
-if get_angle(x,y) == code[0]:
-   complete.append(code.pop(0))
-   sense.set_pixel(0,0,g)
+if get_angle(x,y) == combination[0]:
+   complete.append(combination.pop(0))
 ```
 
-- The condition `get_angle(x,y) == code[0]` uses the `get_angle` function to convert `x` and `y` to an angle. It then checks whether the angle matches the first item in `code`.
-- If the angle matches then the line `complete.append(code.pop(0))` removes (or "pops") the first item from `code` and adds it to the `complete` list.
-- The `sense.set_pixel(0,0,g)` line turns a single LED green to inform the user they got that step right.
++ We need to let the player know when they got an angle right, so use the `set_pixel` method to also set a single LED to green if the angle and the first item in the combination were equal.
 
-1. If the user gets the angle wrong then the `complete` and `code` lists reset and a red LED is shown. Add the following `else` condition to your `if` block:
+[[[rpi-sensehat-single-pixel]]]
+
+If the user gets the angle wrong then the `complete` and `combination` lists need to be reset and a red LED should be shown.
+
++ Add an `else` condition to your `if` block which does the following:
+
+1. Set the combination list to be equal to whatever is in the `complete` list plus whatever is left in the `combination` list
+1. Clear the `complete` list
+1. Display a red pixel to show the user they made a mistake
+
+--- hints ---
+--- hint ---
+You can add lists together just like you would with numbers, so the `+` operator will add the contents of one list to another.
+--- /hint ---
+
+--- hint ---
+To clear a list, simply set it equal to a blank list `[]`.
+--- /hint ---
+
+--- hint ---
+You already have the colour red defined as `r` from the lock images you created earlier, so you can reuse that when you display the red pixel.
+--- /hint ---
+
+--- hint ---
+Here is how your code should look:
 
 ```python
-if get_angle(x,y) == code[0]:
-   complete.append(code.pop(0))
-   sense.set_pixel(0,0,g)
 else:
-   code = complete + code
+   combination = complete + combination
    complete = []
    sense.set_pixel(0,0,r)
 ```
+--- /hint ---
+--- /hints ---
 
-1. Finally, you'll need to add some `sleep` commands to give the user time to rotate their Sense HAT. Using two sleep commands and turning the LED off in between will create a flashing LED that informs the user whether they've got the steps correct.
+Finally, you'll need to add some `sleep` commands to give the user time to rotate their Sense HAT.
 
-```python
-sleep(1)
-sense.set_pixel(0,0,e)
-sleep(1)
-```
++ Still inside your loop, wait for 1 second, then turn the LED off (black), then wait for another second.
 
++ Once the loop stops, the combination has been found, so display the lock picture, then wait for 2 seconds, then display the unlock picture and wait another 2 seconds to show that the combination lock has been broken.
 
 ## Testing your lock
+To test the lock, run your program and rotate the Sense HAT. You may want to temporarily comment out the code for your other locks so that you only have one lock to test.

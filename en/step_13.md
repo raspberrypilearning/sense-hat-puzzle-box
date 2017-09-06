@@ -2,7 +2,7 @@
 
 Now you need to specify the combination - the sequence of angles that will successfully unlock this lock.
 
-+ In your `Locks` section, create two empty lists, one called `combination` and one called `complete`.
++ In your `Locks` section but underneath the code for your other locks, create two empty lists, one called `combination` and one called `complete`.
 
 [[[generic-python-create-list]]]
 
@@ -19,4 +19,4 @@ The second list, `complete`, will be used to store the completed steps of the co
 
 ![Item moving](images/list-move.png)
 
-When the code list is empty then the combination has been completed and the lock is unlocked.
+When the combination list is empty then the combination has been completed and the lock is unlocked.
