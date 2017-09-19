@@ -1,13 +1,13 @@
 ## Arriving at the location
 
-+ Display the locked symbol for 5 seconds after each GPS Check
++ Display the locked symbol for 5 seconds after each GPS check
 
 --- hints ---
 --- hint ---
 You have already done this before with the other locks, so see if you can look back at your code and find the right part to copy.
 --- /hint ---
 --- hint ---
-Here is how the new code should look:
+Here is how the new code should look. Add this code within the `while` loop, after your `if/else` statement.
 ```python
 pixels(locked)
 sleep(5)
@@ -24,8 +24,8 @@ sense.set_pixels(tick)
 sleep(5)
 ```
 
-+ Once the `for` loop completes, all the targets have been found so display the unlocked image.
++ Once the `for` loop completes, all the targets have been found, so display the unlocked image.
 
-## Testing your lock
+### Testing your lock
 
-This lock is tricky to test as you need to go outside. Connect your Raspberry Pi to a battery pack and take a wander.
+This lock is tricky to test as you need to go outside. Connect your Raspberry Pi to a battery pack and have a wander.
