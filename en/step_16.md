@@ -5,7 +5,7 @@ If you have followed the instructions, you should have a copy of the **piGPS** l
 + In the **import** section and add this code to import the necessary functionality:
 
 ```python3
-from piGPS import GPS
+from pigps import GPS
 ```
 
 + Add a pixel art image to your program to indicate when a target location has been reached. We chose a green tick, but you can draw whatever you like.

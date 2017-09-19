@@ -28,4 +28,6 @@ steps:
 - title: Check the combination
 - title: Location lock
 - title: Set the target
+- title: Are we nearly there yet?
+- title: Arriving at the location
 - title: "Challenge: more locks"

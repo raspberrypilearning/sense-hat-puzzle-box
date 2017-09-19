@@ -10,13 +10,14 @@ Your Raspberry Pi will need to communicate with at least four GPS satellites to 
 
 You'll need to add GPS functionality to your Raspberry Pi. This can be done in a number of ways but we used a GPS USB stick like [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO).
 
-Ensure you have installed the **pigps** library before continuing.
+Ensure you have installed the **piGPS** library before continuing.
 
 ### How will the lock work?
 
 The lock will work as follows:
 
-- Create a `gps` object which continually checks for GPS data, and it also sets up a list of destination(s) which the user must visit.
-- Calculates the distance from the first target location
-- Continually checks the distance to the target location until you are within 10m of it. It then tells you whether you are getting closer or farther away.
-- Finally, once all the target destinations have been visited the program will give indication that the temperature lock is unlocked.
+- Create a `gps` object which continually checks for GPS data.
+- Set up a list of destination(s) which the user must visit.
+- Calculate the distance of the Raspberry Pi from the first target location
+- Continually check the distance to the target location until you are within 10m of it. It then tells you whether you are getting closer or further away.
+- Once all the target destinations have been visited the program will give an indication that the location lock is unlocked.
