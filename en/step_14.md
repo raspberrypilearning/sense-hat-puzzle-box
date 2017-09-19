@@ -80,7 +80,7 @@ if event.action == "pressed":
 
 + Once the loop stops, the combination has been found, so display the lock picture, then wait for 2 seconds, then display the unlock picture and wait another 2 seconds to show that the combination lock has been broken.
 
-## Testing your lock
+### Testing your lock
 To test the lock, run your program and rotate the Sense HAT. You may want to temporarily comment out the code for your other locks so that you only have one lock to test.
 
 This lock is quite difficult to test on the Sense HAT emulator by manipulating the model, so you might need to alter the code to give you more time to rotate the Sense HAT in between each angle.
