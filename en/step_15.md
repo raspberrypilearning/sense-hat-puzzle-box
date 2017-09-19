@@ -1,6 +1,22 @@
-## Challenge: more locks
+## Location Lock
 
-- Beyond the locks demonstrated in this activity, there are many more you could create using the other sensors on the Sense HAT, perhaps using the joystick, pressure or magnetic sensors.
-- You could adapt the combination lock by adding more steps to the combination.
-- How would you add more potential angles, e.g. every 45 degrees rather than every 90?
-- Why not build an actual physical box for your Raspberry Pi and Sense Hat?
+In order for your Raspberry Pi to know its location, it will need to use a technology known as GPS (Global Positioning System), which uses communication with satellites to determine a position.
+
+Your Raspberry Pi will need to communicate with at least four GPS satellites to get an accurate location. By timing the speed of this communication, the distance from each satellite can be calculated. Once we know the distance to all four satellites, a 3D position on Earth can be given in terms of:
+
+  - **Latitude**, the distance north or south of the Equator. Positive distances are north and negative distances are south.
+  - **Longitude**, the distance east or west of the Greenwich Prime Meridian in London. Positive distances are east and negative distances are west.
+  - **Altitude**, the current height above sea level.
+
+You'll need to add GPS functionality to your Raspberry Pi. This can be done in a number of ways but we used a GPS USB stick like [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO).
+
+Ensure you have installed the **pigps** library before continuing.
+
+### How will the lock work?
+
+The lock will work as follows:
+
+- Create a `gps` object which continually checks for GPS data, and it also sets up a list of destination(s) which the user must visit.
+- Calculates the distance from the first target location
+- Continually checks the distance to the target location until you are within 10m of it. It then tells you whether you are getting closer or farther away.
+- Finally, once all the target destinations have been visited the program will give indication that the temperature lock is unlocked.
