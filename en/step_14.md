@@ -19,8 +19,6 @@ while len(combination) > 0:
   y = acc["y"]
 ```
 
-+ Round the `x` and `y` values to zero decimal places using the `round` function
-
 + Create a new variable called `angle`, then convert `x` and `y` to an angle using the `get_angle` function you wrote earlier and store the result in this variable.
 
 + Write an `if` statement to compare the angle with the first item in the `code` list and check whether they are the same.
@@ -30,11 +28,11 @@ while len(combination) > 0:
 + If they are the same (i.e. the player has turned the Sense HAT to the correct angle), `pop` the first item from the combination list and `append` it to the complete list, like this.
 
 ```python
-if get_angle(x,y) == combination[0]:
+if angle == combination[0]:
    complete.append(combination.pop(0))
 ```
 
-+ We need to let the player know when they got an angle right, so use the `set_pixel` method to also set a single LED to green if the angle and the first item in the combination were equal.
++ We need to let the player know when they got an angle right, so use the `set_pixel` method to also set a single LED to green for 1 second if the angle and the first item in the combination were equal.
 
 [[[rpi-sensehat-single-pixel]]]
 
@@ -44,7 +42,7 @@ If the user gets the angle wrong then the `complete` and `combination` lists nee
 
 1. Set the combination list to be equal to whatever is in the `complete` list plus whatever is left in the `combination` list
 1. Clear the `complete` list
-1. Display a red pixel to show the user they made a mistake
+1. Display a red pixel for 1 second to show the user they made a mistake
 
 --- hints ---
 --- hint ---
@@ -71,13 +69,18 @@ else:
 --- /hint ---
 --- /hints ---
 
-Finally, you'll need to add some `sleep` commands to give the user time to rotate their Sense HAT.
+Finally, you'll need to add some code to give the user time to rotate their Sense HAT and say that they are ready to input the next orientation. To do this, we will check the next angle only when the joystick is pressed.
 
-+ Still inside your loop, wait for 1 second, then turn the LED off (black), then wait for another second.
++ As the first action inside your loop, add a line of code to wait for the joystick to be pressed. Put the rest of the code from your loop inside a condition so that it only happens **if** the joystick was pressed.
+
+```python
+event = sense.stick.wait_for_event()
+if event.action == "pressed":
+```
 
 + Once the loop stops, the combination has been found, so display the lock picture, then wait for 2 seconds, then display the unlock picture and wait another 2 seconds to show that the combination lock has been broken.
 
 ## Testing your lock
 To test the lock, run your program and rotate the Sense HAT. You may want to temporarily comment out the code for your other locks so that you only have one lock to test.
 
-This lock is quite difficult to test on the Sense HAT emulator by manipulating the model, so you might need to alter the code to give you more time to rotate the Sense HAT in between each angle. 
+This lock is quite difficult to test on the Sense HAT emulator by manipulating the model, so you might need to alter the code to give you more time to rotate the Sense HAT in between each angle.

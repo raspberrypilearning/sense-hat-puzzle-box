@@ -21,7 +21,7 @@ steps:
 - title: Choose a target temperature
 - title: Display a clue
 - title: Check for unlock
-- title: "Challenge: Pressure lock"
+- title: "Challenge: Humidity lock"
 - title: Combination lock
 - title: Convert orientation to an angle
 - title: Set the combination
