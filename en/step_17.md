@@ -42,9 +42,9 @@ for target in targets:
 
 ```
 
-+ Test this out; if you run your program you should be prompted to go outside. At this point you can either go outside or hang your GPS antenna out a window and it should start to get a GPS signal.
++ Test this out; if you run your program you should be prompted to go outside. At this point you can either go outside or put your Pi near a window and it should start to get a GPS signal.
 
-Once your program begins receiving GPS data, it won't currently do anything with it. You'll need to first calculate the distance to the current target and check whether the user is getting closer or farther away.
+Once your program begins receiving GPS data, it won't currently do anything with it. You'll need to first calculate the distance to the current target and check whether the user is getting closer or further away.
 
 The **piGPS** library you imported earlier has a built-in function to calculate the distance to the current target.
 
@@ -52,9 +52,7 @@ The **piGPS** library you imported earlier has a built-in function to calculate 
 
 + Within the `else` block, create a new variable called `last_distance` and set it equal to the `distance`
 
-+ Find the distance to the target location using `gps.distanceToTarget(target)`
-
-+ Round this value to 2 decimal places
++ Find the distance to the target location using `gps.distanceToTarget(target)` and set this as the new value of the `distance` variable, rounding the value to 2 decimal places
 
 --- hints ---
 --- hint ---
@@ -103,4 +101,4 @@ elif distance > lastDistance:
 --- /hints ---
 
 ### Challenge
-Can you display the distance from the target as well as warmer or colder?
+Can you display the distance from the target in metres, as well as the message warmer or colder?
