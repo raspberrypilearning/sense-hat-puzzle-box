@@ -73,7 +73,7 @@ if gps.sat < 4:
     text_colour=(150,150,150)
   )
 else:
-    lastDistance = distance
+    last_distance = distance
     distance = round(gps.distanceToTarget(target),2)
 ```
 --- /hint ---
@@ -92,9 +92,9 @@ You also need to check whether *last_distance* = 999999. If it was then it shoul
 Here is how your code might look:
 
 ```python
-if distance < lastDistance and lastDistance !=999999:
+if distance < last_distance and last_distance !=999999:
     sense.show_message("Warmer...")
-elif distance > lastDistance:
+elif distance > last_distance:
     sense.show_message("Colder...")
 ```
 --- /hint ---
