@@ -21,7 +21,7 @@ This function will need values of `x` and `y` as inputs, and will return the ori
 
 + Inside the function, round the values of `x` and `y` to zero decimal places using the `round` function.
 
-[[[rounding-numbers-with-python]]]
+[[[generic-python-rounding-numbers]]]
 
 + Create an `if` statement to return the correct angle from the table above. For example, you might start off like this to represent the first angle (0&deg;) in the table:
 
