@@ -1,8 +1,8 @@
 ## Set the target
 
-If you have followed the instructions, you should have a copy of the **piGPS** library installed and tested.
+If you have followed the instructions, the `piGPS` library should be installed on your Pi.
 
-+ In the **import** section and add this code to import the necessary functionality:
++ In the **Libraries** section, add this code to import the necessary functionality:
 
 ```python3
 from pigps import GPS
@@ -12,7 +12,7 @@ from pigps import GPS
 
   ![Green Tick](images/green_tick.png)
 
-To add the tick to your code, create a new pixel art image in the **Pixel Art** section:
+To add the tick to your code, create a new list containing the items for the pixel art image in the **Pixel art** section:
 
 ```python3
 tick = [
@@ -27,25 +27,25 @@ e,e,e,e,e,e,e,e
     ]
 ```
 
-The program you're going to write needs at least one location target but can have many.
+The program you're going to write needs at least one location target, but it can have many.
 
-+ In the "locks" section, create a GPS object called *gps* which will monitor the GPS board and convert its raw data into Longitude, Latitude and Altitude, as well as other helpful data.
++ In the **Locks** section, create a GPS object called `gps` which will monitor the GPS device and store its raw data as useful data such as longitude, latitude, and altitude.
 
 ```python3
 gps = GPS()
 ```
 
-+ Choose your destination and find out its latitude and longitude using an online mapping service such as [Google Maps](http://maps.google.com)
+Choose your destination and find out its latitude and longitude using an online mapping service such as [Google Maps](http://maps.google.com).
 
-+ Find your chosen location on the map and right-click on it
++ Find your chosen location on the map and right-click on it.
 
 ![Map](images/map.png)
 
-+ Select **What's here** and the latitude and longitude will be shown below.
++ Select **What's here**, and the latitude and longitude will be shown at the bottom of the screen.
 
 ![Map with Co-ordinates](images/map-coord.png)
 
-+  Choose as many locations as you like and add them to a two dimensional list in your Python script:
++  Choose as many locations as you like, and add them to a two-dimensional list called `targets` in your Python script:
 
 ```python3
 targets = [
