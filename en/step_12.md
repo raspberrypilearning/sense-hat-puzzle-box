@@ -1,8 +1,8 @@
 ## Convert orientation to an angle
 
-The Sense HAT measures orientation in three axes (x, y, z), but we want to turn that data into a simple rotation angle using the `x` and `y` data. When stationary, the Sense HAT will record a measurement of 1**g** (**g** = acceleration due to gravity) straight down, and this can be used to calculate which way up it is.
+The Sense HAT measures orientation in three axes (x, y, z), but we want to turn that data into a simple rotation angle using the `x` and `y` data. When stationary, the Sense HAT will record a measurement of 1 **G** (G = acceleration due to gravity) straight down, and this can be used to calculate which way up it is.
 
-The table below shows how the **g** measurements of x and y relate to these rotation angles.
+The table below shows how the G measurements of `x` and `y` relate to these rotation angles.
 
 |  0 degrees | 90 degrees  | 180 degrees | 270 degrees |
 | - | - | - | - |
@@ -11,13 +11,13 @@ The table below shows how the **g** measurements of x and y relate to these rota
 | **y = 1** | **y = 0** | **y = -1** | **y = 0** |
 
 
-As your lock program is going to need to regularly calculate its orientation angle from the **g** measurement, you should create a function to perform this calculation.
+As your lock program is going to need to regularly calculate its orientation angle from the **G** measurement, you should first create a function to perform this calculation.
 
 [[[generic-python-simple-functions]]]
 
 This function will need values of `x` and `y` as inputs, and will return the orientation angle as an output.
 
-+ In the **functions** section, define a function called `get_angle(x,y)`
++ In the **Functions** section, define a function called `get_angle(x,y)`.
 
 + Inside the function, round the values of `x` and `y` to zero decimal places using the `round` function.
 
