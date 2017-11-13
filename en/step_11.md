@@ -1,4 +1,4 @@
-## Combination Lock
+## Combination lock
 
 Using the Sense HAT's orientation sensors, the combination lock will require the user to move the Sense HAT in certain directions in order to unlock it.
 
