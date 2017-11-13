@@ -19,5 +19,5 @@ You will write the code for the lock using the following steps:
 - Create a `gps` object which continually checks for GPS data
 - Set up a list of destination(s) which the user must visit
 - Calculate the distance of the Raspberry Pi from the first target location
-- Continually check the distance to the target location until the Raspberry Pi is within 10m of it, then tell the user whether they are getting closer or further away
+- Continually check the distance to the target location until the Raspberry Pi is within 10 m of it, then tell the user whether they are getting closer or further away
 - Once all the target destinations have been visited, the program will tell the user that the location lock is open
