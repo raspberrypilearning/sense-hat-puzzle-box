@@ -1,17 +1,16 @@
-## Challenge: Humidity lock
+## Challenge: humidity lock
 
 You can create a humidity lock using the exact same principles as for the temperature lock, but instead of taking the temperature, take a humidity reading.
 
 [[[rpi-sensehat-humidity]]]
 
-See if you can create a humidity lock using these steps:
+See if you can create a humidity lock using the steps in this algorithm:
 
 - Choose a target humidity that is slightly higher than the current humidity. For best results, make the difference quite small as it is hard to achieve a large change in humidity.
-- Display a clue that the humidity needs to be increased to reach the target - this could be an image you display on the LED matrix
-- Continually check the current humidity against the target humidity
-- When the target humidity is reached, display the unlocked graphic
-
+- Display a clue on the LED matrix so that the user knows the humidity needs to be increased to reach the target — the clue could be an image.
+- Continually check the current humidity against the target humidity.
+- When the target humidity is reached, display the `unlocked` graphic.
 
 ### Testing your lock
 
-If the diff values you chose are sufficiently small, you should be able to simply blow on the humidity sensor which will momentarily raise the humidity.
+If the difference between the current and the target humidity you chose is sufficiently small, you should be able to simply blow on the humidity sensor to momentarily raise the humidity.
