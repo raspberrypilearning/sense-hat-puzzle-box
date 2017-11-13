@@ -1,8 +1,8 @@
 ## Choose a target temperature
 
-+ In the **locks** section, create a variable called `current_temp` and assign it the value of a reading from the Sense HAT to find the current temperature.
++ In the **Locks** section, create a variable called `current_temp` and assign it the value of a reading from the Sense HAT to find the current temperature.
 
-Take a look at this information to find out how to take a temperature reading, and add the one line of code you need to your program.
+Take a look at the information section below to find out how to take a temperature reading, and add the one line of code you need to your program.
 
 [[[rpi-sensehat-temperature]]]
 
@@ -15,11 +15,11 @@ temp_diffs=[
 ]
 ```
 
-+ Create another new variable called `diff`. Choose a temperature difference at random from the list and assign this as the variable's value.
++ Create another new variable called `diff`. Choose an item from the `temp_diffs` lists at random and assign it as the `diff` variable's value.
 
 [[[generic-python-random-choice]]]
 
-+ Create a new variable called `target_temp` which is equal to the `current_temp` plus the randomly chosen difference. Print out the value of this variable so you can see whether your code worked. You can remove the `print` once you have checked your code works.
++ Create a new variable called `target_temp`, and set it equal to the `current_temp` plus the randomly chosen number you saved as `diff`. Print out the value of this variable so you can see whether your code worked. You can remove the `print` statement once you have checked your code.
 
 --- hints ---
 
@@ -28,7 +28,7 @@ Use the `get_temperature` method to obtain the current temperature. This is call
 --- /hint ---
 
 --- hint ---
-Don't forget to add the import statement to your **libraries** section to allow you to use the random choice function:
+Don't forget to add an `import` statement to your **Libraries** section to allow you to use the `random` function:
 
 ```python
 from random import choice
