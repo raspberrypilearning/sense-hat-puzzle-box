@@ -73,7 +73,7 @@ else:
 --- /hint ---
 --- /hints ---
 
-+ Still within the `else` section, add some code to check whether the user has got closer or further away from the target location. As part of the check, test whether `last_distance = 999999`. If it is, do nothing, so that the user isn't told they have got closer just because a GPS lock has been achieved.
++ Still within the `else` section, add some code to check whether the user has got closer or further away from the target location. As part of the check, test whether `last_distance = 999999`. If it is, do nothing, so that the user isn't told they have got closer just because the Pi has started receiving a GPS signal.
 
 + Display the text `warmer` or `colder` depending on whether they moved closer or further away.
 
