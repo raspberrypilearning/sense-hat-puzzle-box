@@ -15,7 +15,7 @@ combination = [0,180,90,0,270]
 complete = []
 ```
 
-The `complete` list will be used to store the completed steps of the combination: each time the user gets an angle correct, that number gets moved to the `complete` list from the `combination` list.
+The `complete` list will be used to store the completed steps of the combination: each time the user gets an angle correct, that item gets moved to the `complete` list from the `combination` list.
 
 ![Item moving](images/list-move.png)
 
