@@ -8,7 +8,7 @@ Take a look at the information section below to find out how to take a temperatu
 
 [[[rpi-sensehat-temperature]]]
 
-+ Next, create a list of numbers called `temp_diffs`, containing a range of numbers that could be added or subtracted from your current temperature. The wider this range of numbers, the harder the lock is going to be to break.
++ Next, create a list of numbers called `temp_diffs` containing a range of numbers that could be added or subtracted from your current temperature measurement. The wider this range of numbers, the harder the lock is going to be to break.
 
 ```python
 temp_diffs=[
@@ -21,12 +21,12 @@ temp_diffs=[
 
 [[[generic-python-random-choice]]]
 
-+ Create a new variable called `target_temp`, and set it equal to the `current_temp` plus the randomly chosen number you stored as `diff`. Print out the value of this variable so you can see whether your code worked. You can remove the `print` statement once you have checked your code.
++ Create a new variable called `target_temp`, and set it equal to the `current_temp` plus the randomly chosen number you stored as `diff`. Print out the value of `target_temp` so you can see whether your code worked. You can remove the `print` statement once you have checked your code.
 
 --- hints ---
 
 --- hint ---
-Use the `get_temperature` method to obtain the current temperature. This is called the **ambient temperature**.
+Use the `get_temperature` method to obtain the current temperature. This is called the **ambient** temperature.
 --- /hint ---
 
 --- hint ---
