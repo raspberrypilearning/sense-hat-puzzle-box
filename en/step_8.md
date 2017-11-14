@@ -1,6 +1,6 @@
 ## Display a clue
 
-You need to give your user a visual clue about what they need to do to unlock the temperature lock. For example, you could display blue on the Sense HAT's LED matrix if the current temperature is too cold, or red if it is currently too hot.
+You need to give your user a visual clue about what they need to do to unlock the temperature lock. For example, you could display blue on the Sense HAT's LED matrix if the current temperature is too cold, or red if it is too hot.
 
 + Find out the code you will need to display a colour on the Sense HAT's LED matrix in this section:
 
@@ -12,7 +12,7 @@ You need to give your user a visual clue about what they need to do to unlock th
 
 --- hints ---
 --- hint ---
-Use the `clear()` method to display a colour on the LED matrix, and put the RGB values of the colour you would like in the brackets. For example, to fill the screen with green you would write:
+Use the `clear()` method to display a colour on the LED matrix, and put the RGB values of the colour you would like in the brackets. For example, to fill the screen with green, you would write:
 
 ```python
 sense.clear(0, 255, 0)
