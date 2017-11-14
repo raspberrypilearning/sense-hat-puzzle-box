@@ -1,6 +1,6 @@
 ## Are we nearly there yet?
 
-Your user is unlikely to receive GPS signals unless they're outside. Therefore, you need to check whether the Pi is getting a signal, and if not, prompt the user to take a walk. But before you do that, there are a couple of other steps to take.
+Your user is unlikely to receive GPS signals with their Pi puzzle box unless they're outside. Therefore, you need to check whether the Pi is getting a signal, and if not, prompt the user to take a walk. But before you do that, there are a couple of other steps to take.
 
 + Start a loop which will run through each location in the `targets` list.
 
@@ -25,7 +25,6 @@ for target in targets:
 
 + Within the for loop, start a while loop which will run until your current position is less than 10 m (0.01 km) from the target position.
 
-
 + Within the while loop, check whether your GPS object is communicating with four or more satellites. If not, show a message telling the user to go outside.
 
 ```python3
@@ -42,9 +41,9 @@ for target in targets:
 
 ```
 
-+ Test this out. If you run your program, you should be prompted to go outside. At this point you can either go outside with your Pi or place it near a window, and then it should start to get a GPS signal.
++ Test this out. If you run your program, you should be prompted to go outside. At this point, you can either go outside with your Pi or place it near a window, and then it should start to get a GPS signal.
 
-Once your program begins receiving GPS data, it currently won't do anything with it yet. You'll need to first calculate the distance to the current target and check whether the user is moving closer to it or further away.
+Once your program begins receiving GPS data, it currently won't do anything with it yet. You'll need to first make it calculate the distance to the current target and check whether the user is moving closer to it or further away.
 
 The `piGPS` library you imported earlier has a built-in function to calculate the distance to the current target.
 
@@ -52,9 +51,7 @@ The `piGPS` library you imported earlier has a built-in function to calculate th
 
 + Within the `else` section, create a new variable called `last_distance`, and set it equal to the `distance`.
 
-+ Find the distance to the target location using `gps.distanceToTarget(target)` and set this as the new value of the `distance` variable, rounding the value to two decimal places
-
-[[[generic-python-rounding-numbers]]]
++ Find the distance to the target location using `gps.distanceToTarget(target)` and set this as the new value of the `distance` variable, rounding the value to two decimal places.
 
 --- hints ---
 --- hint ---
@@ -73,9 +70,9 @@ else:
 --- /hint ---
 --- /hints ---
 
-+ Still within the `else` section, add some code to check whether the user has got closer or further away from the target location. As part of the check, test whether `last_distance = 999999`. If it is, do nothing, so that the user isn't told they have got closer just because the Pi has started receiving a GPS signal.
++ Still within the `else` section, add some code to check whether the user has moved closer to or further away from the target location. As part of the check, test whether `last_distance = 999999`. If it is, do nothing, so that the user isn't told they have got closer just because the Pi has started receiving a GPS signal.
 
-+ Display the text `warmer` or `colder` depending on whether they moved closer or further away.
++ Display the text `warmer` or `colder` depending on whether the user moves closer or further away.
 
 --- hints ---
 --- hint ---
