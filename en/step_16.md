@@ -29,13 +29,13 @@ e,e,e,e,e,e,e,e
 
 The program you're going to write needs at least one location target, but it can have many.
 
-+ In the **Locks** section, create a GPS object called `gps` which will monitor the GPS device and store its raw data as useful data such as longitude, latitude, and altitude.
++ In the **Locks** section, create a GPS object called `gps` which will monitor the GPS device and store its raw data as useful information such as longitude, latitude, and altitude.
 
 ```python3
 gps = GPS()
 ```
 
-Choose your destination and find out its latitude and longitude using an online mapping service such as [Google Maps](http://maps.google.com).
+Choose your destination and find out its latitude and longitude using an online mapping service, e.g. [Google Maps](http://maps.google.com).
 
 + Find your chosen location on the map and right-click on it.
 
@@ -45,7 +45,7 @@ Choose your destination and find out its latitude and longitude using an online 
 
 ![Map with Co-ordinates](images/map-coord.png)
 
-+  Choose as many locations as you like, and add them to a two-dimensional list called `targets` in your Python script:
++ Choose as many locations as you like, and add their latitude and longitude to a two-dimensional list called `targets` in your Python script:
 
 ```python3
 targets = [
