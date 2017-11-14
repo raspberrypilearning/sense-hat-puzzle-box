@@ -1,8 +1,8 @@
 ## Locked or not?
 
-It would be helpful to show the user some feedback as to whether the box is locked or not. To do this, you're going to use a pair of padlock images: one red padlock (locked) and one green one (unlocked).
+It would be helpful to show the user some feedback as to whether the box is locked or not. To do this, you're first going to use a pair of padlock images: one red locked padlock and one green unlocked one.
 
-+ In the **Pixel art** section, create four variables called `r`, `g`, `w`, and `b`. These should represent the colours red, green, white, and black/blank in RGB format. For example, your `r` variable should look like this:
++ In the **Pixel art** section, create four variables called `r`, `g`, `w`, and `b`. These should store the colours red, green, white, and black/blank in RGB format. For example, your `r` variable should look like this:
 
 ```python
 r = (255, 0, 0)
@@ -52,7 +52,7 @@ unlocked = [
 --- /hint ---
 --- /hints ---
 
-+ Go to the **Main program** section to add some code to test your images. The new code should display the `locked` image on the LED matrix, then wait 2 seconds, then display the `unlocked` image and wait for another 2 seconds.
++ Go to the **Main program** section to add some code to test your images. The new code should display the `locked` image on the LED matrix, then wait two seconds, then display the `unlocked` image and wait for another two seconds.
 
 [[[generic-python-sleep]]]
 
@@ -63,7 +63,7 @@ Use the `set_pixels` method to display a list of pixels on the LED matrix.
 --- /hint ---
 
 --- hint ---
-Use the `sleep` method to ask the program to wait. For example, `sleep(1)` will wait for 1 second. You can change the number in the brackets to change how long the program waits.
+Use the `sleep` method to ask the program to wait. For example, `sleep(1)` will make it wait for one second. You can change the number in the brackets to change how long the program waits.
 --- /hint ---
 
 --- hint ---
