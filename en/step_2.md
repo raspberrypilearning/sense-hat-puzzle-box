@@ -6,7 +6,7 @@
 + A Sense HAT
 
 Optional:
-+ A GPS USB device such as [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO){:target="_blank"}
++ A USB GPS device such as [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO){:target="_blank"}
 
 
 ### Software
