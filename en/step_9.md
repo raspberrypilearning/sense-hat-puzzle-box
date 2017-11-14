@@ -33,7 +33,7 @@ You might expect the colour to change when you warm up or cool down the Sense HA
 ---
 title: Answer
 ---
-Once the program enters the `while` loop, the current temperature is never updated. It remains exactly the same, so there is no chance of the colour ever updating and no chance that the loop will ever end.
+Once the program enters the `while` loop, the `current_temp` variable is never updated. It remains exactly the same, so the colour will never change and the loop will never end.
 --- /collapse ---
 
 + Fix this problem by adding a line of code to take the current temperature **inside** the loop. However, don't delete or move the original line of code which takes the temperature — you still need it to take the ambient temperature at the start.
