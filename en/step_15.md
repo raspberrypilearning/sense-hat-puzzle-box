@@ -8,7 +8,7 @@ Your Raspberry Pi will communicate with at least four GPS satellites to get an a
   - **Longitude**, the position east or west of the Greenwich Prime Meridian in London (positive longitude values are east and negative longitude values are west)
   - **Altitude**, the height above sea level
 
-To program this lock, you'll need to add GPS functionality to your Raspberry Pi. This can be done in a number of ways, but we used a GPS USB stick like [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO).
+To program this lock, you'll need to add GPS functionality to your Raspberry Pi. This can be done in a number of ways, but we used a GPS USB stick like [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO). If you do not have a GPS device, skip ahead to the final step.
 
 Ensure you have installed the `piGPS` library before continuing.
 

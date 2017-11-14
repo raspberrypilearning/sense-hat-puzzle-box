@@ -54,7 +54,7 @@ The `piGPS` library you imported earlier has a built-in function to calculate th
 
 + Find the distance to the target location using `gps.distanceToTarget(target)` and set this as the new value of the `distance` variable, rounding the value to two decimal places
 
-[[[rounding-numbers-with-python]]]
+[[[generic-python-rounding-numbers]]]
 
 --- hints ---
 --- hint ---
@@ -73,14 +73,13 @@ else:
 --- /hint ---
 --- /hints ---
 
-+ Still within the `else` section, add some code to check whether the user has got closer or further away from the target location. Display the text `warmer` or `colder` depending on whether they moved closer or further away.
++ Still within the `else` section, add some code to check whether the user has got closer or further away from the target location. As part of the check, test whether `last_distance = 999999`. If it is, do nothing, so that the user isn't told they have got closer just because a GPS lock has been achieved.
+
++ Display the text `warmer` or `colder` depending on whether they moved closer or further away.
 
 --- hints ---
 --- hint ---
 Compare the current value of `distance` to that of `last_distance`. If `distance` is smaller, display `warmer`, otherwise display `colder`.
---- /hint ---
---- hint ---
-You also need to check whether `last_distance = 999999`. If it is, then it should be ignored, so that the user isn't told they have got closer just because a GPS lock has been achieved.
 --- /hint ---
 --- hint ---
 Here is how your code might look:
