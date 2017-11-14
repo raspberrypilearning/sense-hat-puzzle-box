@@ -1,6 +1,8 @@
 ## Choose a target temperature
 
-+ In the **Locks** section, create a variable called `current_temp` and assign it the value of a reading from the Sense HAT to find the current temperature.
+First, you need to record the current temperature.
+
++ In the **Locks** section, create a variable called `current_temp` and assign it the value of a temperature reading from the Sense HAT.
 
 Take a look at the information section below to find out how to take a temperature reading, and add the one line of code you need to your program.
 
@@ -19,7 +21,7 @@ temp_diffs=[
 
 [[[generic-python-random-choice]]]
 
-+ Create a new variable called `target_temp`, and set it equal to the `current_temp` plus the randomly chosen number you saved as `diff`. Print out the value of this variable so you can see whether your code worked. You can remove the `print` statement once you have checked your code.
++ Create a new variable called `target_temp`, and set it equal to the `current_temp` plus the randomly chosen number you stored as `diff`. Print out the value of this variable so you can see whether your code worked. You can remove the `print` statement once you have checked your code.
 
 --- hints ---
 
