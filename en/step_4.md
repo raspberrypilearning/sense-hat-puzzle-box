@@ -4,7 +4,7 @@
 
 [[[rpi-gui-idle-opening]]]
 
-+ Paste in these comments to define the different sections of your program. These will be ignored by Python, but will help you to structure your program.
++ Paste in these comments to define the different sections of your program. Comments will be ignored by Python, but will help you to structure your program.
 
 ```python
 # Libraries -------------------
@@ -21,15 +21,15 @@
 
 ```
 
-The **Locks** section will eventually contain your code to prevent the program getting to the last line unless the user has opened the lock.
+When you're finished coding this project, the **Locks** section will contain your code to prevent the program from getting to the last line displaying your secret message unless the user has opened all the locks.
 
-+ Add this code in the **Libraries** section to import the `sense_hat` module.
++ Add this code in the **Libraries** section to import the `sense_hat` module:
 
 ```python
 from sense_hat import SenseHat
 ```
 
-+ Add this code in the **Main program** section to connect to the Sense HAT.
++ Add this code in the **Main program** section to connect to the Sense HAT:
 
 ```python
 sense = SenseHat()
