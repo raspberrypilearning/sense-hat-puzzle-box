@@ -1,6 +1,6 @@
 ## Temperature lock
 
-This lock will require the user to raise or lower the temperature measured by the Sense HAT's temperature sensors by a number of degrees in order to be opened.
+I n order to open this lock, the user will need to raise or lower the temperature the Sense HAT's temperature sensor measure by a number of degrees.
 
 ### How will the lock work?
 
@@ -11,4 +11,4 @@ You will do the following to set up this lock:
 - Continually check the current temperature against the target temperature
 - When the target temperature is reached, display the `unlocked` graphic
 
-The list above is called an **algorithm**: a set of instructions which roughly describe the program you're going to write.
+The list above is called an **algorithm** — a set of instructions which describe the program you're going to write.
