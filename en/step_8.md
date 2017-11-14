@@ -38,4 +38,4 @@ else:
 
 ![Comment out](images/comment-out.png)
 
-You can remove the `#` once you know your lock is working properly.
+You can remove the `#` once you know your code is working properly.
