@@ -4,7 +4,9 @@
 
 + A Raspberry Pi and the usual peripherals
 + A Sense HAT
-+ (Optional) GPS USB device such as [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO){:target="_blank"}
+
+Optional:
++ A GPS USB device such as [this one](https://www.amazon.co.uk/Diymall-G-mouse-Glonass-Raspberry-Aviation/dp/B015E2XSSO){:target="_blank"}
 
 
 ### Software
