@@ -5,7 +5,7 @@ description: Use the Sense HAT and Python to hide secret information
 original_url: https://raspberrypi.org/learning/sense-hat-puzzle-box
 theme: red
 duration: 3
-listed: false
+listed: true
 ingredient: false
 copyedit: true
 curriculum: 3, design-0, programming-3, phys-comp-2, manufacture-0, community-0
@@ -19,9 +19,9 @@ last_tested: 2017-01-01
 steps:
 - title: Introduction
 - title: What you will need
-  completion: engaged
 - title: Connect to the Sense HAT
 - title: Set up the structure
+  completion: engaged
 - title: Locked or not?
 - title: Temperature lock
 - title: Choose a target temperature
@@ -37,4 +37,4 @@ steps:
 - title: Are we nearly there yet?
 - title: Arriving at the location
   completion: internal
-- title: 'Challenge: more locks'
+- title: "Challenge: more locks"
