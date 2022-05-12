@@ -1,3 +1,4 @@
+---
 title: Sense HAT puzzle box
 hero_image: images/banner.png
 description: Use the Sense HAT and Python to hide secret information
@@ -15,17 +16,18 @@ hardware: raspberry-pi, electronic-components, sense-hat
 software: python
 version: 4
 last_tested: 2017-01-01
-steps: 
+steps:
 - title: Introduction
 - title: What you will need
 - title: Connect to the Sense HAT
 - title: Set up the structure
+  completion: engaged
 - title: Locked or not?
 - title: Temperature lock
 - title: Choose a target temperature
 - title: Display a clue
 - title: Check for unlock
-- title: "Challenge: humidity lock"
+- title: 'Challenge: humidity lock'
 - title: Combination lock
 - title: Convert orientation to an angle
 - title: Set the combination
@@ -34,4 +36,5 @@ steps:
 - title: Set the target
 - title: Are we nearly there yet?
 - title: Arriving at the location
+  completion: internal
 - title: "Challenge: more locks"
