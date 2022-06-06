@@ -21,7 +21,8 @@ steps:
 - title: What you will need
 - title: Connect to the Sense HAT
 - title: Set up the structure
-  completion: engaged
+  completion:
+  - engaged
 - title: Locked or not?
 - title: Temperature lock
 - title: Choose a target temperature
@@ -36,5 +37,6 @@ steps:
 - title: Set the target
 - title: Are we nearly there yet?
 - title: Arriving at the location
-  completion: internal
-- title: "Challenge: more locks"
+  completion:
+  - internal
+- title: 'Challenge: more locks'
