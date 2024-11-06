@@ -5,7 +5,7 @@ description: Use the Sense HAT and Python to hide secret information
 original_url: https://raspberrypi.org/learning/sense-hat-puzzle-box
 theme: red
 duration: 3
-listed: true
+listed: false
 ingredient: false
 copyedit: true
 curriculum: 3, design-0, programming-3, phys-comp-2, manufacture-0, community-0
